@@ -7,6 +7,7 @@ class InsertionSort
 {
 public:
 	static void Sort(T* pData, int nSize);
+	static void Sort2(T* pData, int nSize);
 	static void Show(T* pData, int nSize);
 private:
 	static bool Less(T t1, T t2);
@@ -23,6 +24,19 @@ void InsertionSort<T>::Sort(T* pData, int nSize)
 		{
 			Exch(pData, j, j - 1);
 		}
+	}
+}
+
+template <typename T>
+void InsertionSort<T>::Sort2(T* pData, int nSize)
+{
+	for (int i = 0; i < nSize; i++)
+	{
+		for (int j = i; j > 1 && Less(pData[j], pData[j - 1]; j--)
+		{
+			pData[j-1] = pData[j];
+		}
+		pData[j] = pData[i];
 	}
 }
 

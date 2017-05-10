@@ -118,9 +118,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bag.h" />
+    <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="QuickFindUF.h" />
     <ClInclude Include="QuickUnion.h" />
+    <ClInclude Include="SelectionSort.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="WeightQuickUnion.h" />
   </ItemGroup>
