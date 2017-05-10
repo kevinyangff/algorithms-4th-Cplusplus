@@ -20,14 +20,16 @@ void SelectionSort<T>::Sort(T* pData, int nSize)
 	for (int i = 0; i < nSize-1; i++)
 	{
 		int nMin = pData[i];
-		for (int j = i; j < nSize - 1; j++)
+		int nIndex = i;
+		for (int j = i+1; j < nSize; j++)
 		{
-			if (!SelectionSort<T>::Less(pData[j], pData[j + 1]))
+			if (SelectionSort<T>::Less(pData[j], nMin))
 			{
-				nMin = pData[j + 1];
+				nIndex = j;
+				nMin = pData[j];
 			}
 		}
-		pData[i] = nMin;
+		Exch(pData, i, nIndex);
 	}
 }
 

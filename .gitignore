@@ -10,6 +10,9 @@
 # Precompiled Headers
 *.gch
 *.pch
+*.pdb
+*.ipdb
+*.iobj
 
 # Compiled Dynamic libraries
 *.so
@@ -34,3 +37,7 @@
 # DB
 *.db
 *.opendb
+
+#LOG
+*.log
+*.tlog

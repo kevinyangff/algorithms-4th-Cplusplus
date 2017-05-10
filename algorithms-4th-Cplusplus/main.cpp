@@ -1,12 +1,13 @@
+#include <iostream>
+#include <fstream>
+#include <ctime>
 #include "Stack.h"
 #include "Queue.h"
 #include "Bag.h"
 #include "QuickFindUF.h"
 #include "QuickUnion.h"
 #include "WeightQuickUnion.h"
-#include <iostream>
-#include <fstream>
-#include <ctime>
+#include "SortCompare.h"
 using namespace std;
 
 void ShowTime()
@@ -61,25 +62,26 @@ int main()
 // 	{
 // 		cout << b.Peek(i) << endl;
 // 	}
-	ifstream ifs("../data/largeUF.txt");
+	//test UF
+// 	ifstream ifs("../data/mediumUF.txt");
+// 	int nTotal = 0;
+// 	ifs >> nTotal;
+// 	int x = 0;
+// 	int y = 0;
+// 	int i = 0;
+// 	ShowTime();
+// 	WeightQuickUnionUF uf(nTotal);
+// 	while (ifs >> x)
+// 	{
+// 		i++;
+// 		ifs >> y;
+// 		uf.Union(x, y);
+// 	}
+// 	ifs.close();
+// 	cout << "Compotent count: " << uf.ComponentCount()<<endl;
+// 	ShowTime();
 
-	int nTotal = 0;
-	ifs >> nTotal;
-	int x = 0;
-	int y = 0;
-	int i = 0;
-	ShowTime();
-	WeightQuickUnionUF uf(nTotal);
-	while (ifs >> x)
-	{
-		i++;
-		ifs >> y;
-		uf.Union(x, y);
-		cout << "Current compotent count: " << uf.ComponentCount() << endl;
-		cout << "input count: " << i;
-	}
-	ifs.close();
-	cout << "Compotent count: " << uf.ComponentCount()<<endl;
-	ShowTime();
+	//test SORT
+	SortCompare::CompareTwoSortAlgorithms("SelectionSort", "InsertionSort", 1000, 100);
 	return 0;
 }

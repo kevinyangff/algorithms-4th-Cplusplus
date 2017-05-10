@@ -20,7 +20,7 @@ void InsertionSort<T>::Sort(T* pData, int nSize)
 {
 	for (int i = 0; i < nSize; i++)
 	{
-		for (int j = i; j > 1&& Less(pData[j], pData[j - 1]; j--)
+		for (int j = i; j > 0&& Less(pData[j], pData[j - 1]); j--)
 		{
 			Exch(pData, j, j - 1);
 		}
@@ -32,11 +32,13 @@ void InsertionSort<T>::Sort2(T* pData, int nSize)
 {
 	for (int i = 0; i < nSize; i++)
 	{
-		for (int j = i; j > 1 && Less(pData[j], pData[j - 1]; j--)
+		int j = i;
+		T temp = pData[i];
+		for (j; j > 0 && Less(temp, pData[j - 1]); j--)
 		{
-			pData[j-1] = pData[j];
+			pData[j] = pData[j-1];
 		}
-		pData[j] = pData[i];
+		pData[j] = temp;
 	}
 }
 

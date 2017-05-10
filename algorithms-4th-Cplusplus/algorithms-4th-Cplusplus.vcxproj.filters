@@ -50,5 +50,8 @@
     <ClInclude Include="InsertionSort.h">
       <Filter>Header Files\algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="SortCompare.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

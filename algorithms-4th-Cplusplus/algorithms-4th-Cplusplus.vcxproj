@@ -123,6 +123,7 @@
     <ClInclude Include="QuickFindUF.h" />
     <ClInclude Include="QuickUnion.h" />
     <ClInclude Include="SelectionSort.h" />
+    <ClInclude Include="SortCompare.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="WeightQuickUnion.h" />
   </ItemGroup>

@@ -1,7 +1,8 @@
-﻿  Generating code
-  Finished generating code
-  8 of 143 functions ( 5.6%) were compiled, the rest were copied from previous compilation.
+﻿  main.cpp
+  正在生成代码
+  141 of 143 functions (98.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    18 functions had inline decision re-evaluated but remain unchanged
-  algorithms-4th-Cplusplus.vcxproj -> D:\Projects\algorithms-4th-Cplusplus\Release\algorithms-4th-Cplusplus.exe
-  algorithms-4th-Cplusplus.vcxproj -> D:\Projects\algorithms-4th-Cplusplus\Release\algorithms-4th-Cplusplus.pdb (Full PDB)
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  algorithms-4th-Cplusplus.vcxproj -> F:\Projects\algorithms-4th-C++\Release\algorithms-4th-Cplusplus.exe
+  algorithms-4th-Cplusplus.vcxproj -> F:\Projects\algorithms-4th-C++\Release\algorithms-4th-Cplusplus.pdb (Full PDB)
