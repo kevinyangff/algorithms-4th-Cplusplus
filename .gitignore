@@ -41,3 +41,6 @@
 #LOG
 *.log
 *.tlog
+
+Debug/
+Release/
