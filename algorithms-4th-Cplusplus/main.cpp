@@ -1,9 +1,23 @@
 #include "Stack.h"
 #include "Queue.h"
 #include "Bag.h"
+#include "QuickFindUF.h"
+#include "QuickUnion.h"
+#include "WeightQuickUnion.h"
 #include <iostream>
+#include <fstream>
+#include <ctime>
 using namespace std;
 
+void ShowTime()
+{
+	time_t t = time(0);   // get time now
+	struct tm * now = localtime(&t);
+	cout << (now->tm_hour) << ':'
+		<< (now->tm_min) << ':'
+		<< now->tm_sec
+		<< endl;
+}
 int main()
 {
 	//test for Stack
@@ -37,15 +51,35 @@ int main()
 // 		cout << q.Dequeue() << endl;
 // 	}
 	//test for Bag
-	Bag<double> b;
-	b.Add(1.0);
-	b.Add(2.0);
-	b.Add(8.1);
-	cout << b.IsEmpty() << endl;
-	cout << b.Size() << endl;
-	for (int i = 0; i < b.Size(); i++)
+// 	Bag<double> b;
+// 	b.Add(1.0);
+// 	b.Add(2.0);
+// 	b.Add(8.1);
+// 	cout << b.IsEmpty() << endl;
+// 	cout << b.Size() << endl;
+// 	for (int i = 0; i < b.Size(); i++)
+// 	{
+// 		cout << b.Peek(i) << endl;
+// 	}
+	ifstream ifs("../data/largeUF.txt");
+
+	int nTotal = 0;
+	ifs >> nTotal;
+	int x = 0;
+	int y = 0;
+	int i = 0;
+	ShowTime();
+	WeightQuickUnionUF uf(nTotal);
+	while (ifs >> x)
 	{
-		cout << b.Peek(i) << endl;
+		i++;
+		ifs >> y;
+		uf.Union(x, y);
+		cout << "Current compotent count: " << uf.ComponentCount() << endl;
+		cout << "input count: " << i;
 	}
+	ifs.close();
+	cout << "Compotent count: " << uf.ComponentCount()<<endl;
+	ShowTime();
 	return 0;
 }

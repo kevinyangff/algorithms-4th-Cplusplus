@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\container">
+      <UniqueIdentifier>{aa668440-554b-4593-9302-ef87f06f86a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\algorithms">
+      <UniqueIdentifier>{46fe2f2d-15e6-45b8-9d3b-336661086de9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -20,14 +26,23 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Stack.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Bag.h">
+      <Filter>Header Files\container</Filter>
     </ClInclude>
     <ClInclude Include="Queue.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\container</Filter>
     </ClInclude>
-    <ClInclude Include="Bag.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Stack.h">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickFindUF.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickUnion.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="WeightQuickUnion.h">
+      <Filter>Header Files\algorithms</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
