@@ -53,5 +53,11 @@
     <ClInclude Include="SortCompare.h">
       <Filter>Header Files\algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="MergeSort.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="MergeBUSort.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
