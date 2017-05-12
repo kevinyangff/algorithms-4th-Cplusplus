@@ -83,6 +83,6 @@ int main()
 // 	ShowTime();
 
 	//test SORT
-	SortCompare::CompareTwoSortAlgorithms("InsertionSort", "MergeSort", 1000, 100);
+	SortCompare::CompareTwoSortAlgorithms("MergeSort", "MergeBUSort", 1000, 100);
 	return 0;
 }
