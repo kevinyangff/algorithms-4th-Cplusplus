@@ -1,4 +1,0 @@
-﻿  main.cpp
-f:\projects\algorithms-4th-c++\algorithms-4th-cplusplus\sortcompare.h(33): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
-  algorithms-4th-Cplusplus.vcxproj -> F:\Projects\algorithms-4th-C++\Debug\algorithms-4th-Cplusplus.exe
-  algorithms-4th-Cplusplus.vcxproj -> F:\Projects\algorithms-4th-C++\Debug\algorithms-4th-Cplusplus.pdb (Partial PDB)

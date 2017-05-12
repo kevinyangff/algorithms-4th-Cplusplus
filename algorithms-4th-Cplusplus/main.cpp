@@ -63,14 +63,14 @@ int main()
 // 		cout << b.Peek(i) << endl;
 // 	}
 	//test UF
-// 	ifstream ifs("../data/mediumUF.txt");
+// 	ifstream ifs("../data/largeUF.txt");
 // 	int nTotal = 0;
 // 	ifs >> nTotal;
 // 	int x = 0;
 // 	int y = 0;
 // 	int i = 0;
 // 	ShowTime();
-// 	WeightQuickUnionUF uf(nTotal);
+// 	QuickUnionUF uf(nTotal);
 // 	while (ifs >> x)
 // 	{
 // 		i++;
@@ -82,6 +82,6 @@ int main()
 // 	ShowTime();
 
 	//test SORT
-	SortCompare::CompareTwoSortAlgorithms("SelectionSort", "InsertionSort", 1000, 100);
+	SortCompare::CompareTwoSortAlgorithms("InsertionSort", "SelectionSort", 1000, 100);
 	return 0;
 }

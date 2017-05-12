@@ -6,6 +6,7 @@
 #include <string>
 #include "InsertionSort.h"
 #include "SelectionSort.h"
+#include "HillSort.h"
 
 using namespace std;
 
@@ -56,6 +57,7 @@ void SortCompare::Run(string stringAlg, int* pData, int N)
 {
 	if (stringAlg == "SelectionSort") SelectionSort<int>::Sort(pData, N);
 	if (stringAlg == "InsertionSort") InsertionSort<int>::Sort2(pData, N);
+	if (stringAlg == "HillSort") HillSort<int>::Sort2(pData, N);
 }
 
 void SortCompare::ShowElem(int* pData, int N)
