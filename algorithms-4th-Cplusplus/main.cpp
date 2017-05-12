@@ -9,6 +9,7 @@
 #include "WeightQuickUnion.h"
 #include "SortCompare.h"
 #include "MergeSort.h"
+#include "QuickSort.h"
 using namespace std;
 
 void ShowTime()
@@ -83,6 +84,6 @@ int main()
 // 	ShowTime();
 
 	//test SORT
-	SortCompare::CompareTwoSortAlgorithms("MergeSort", "MergeBUSort", 1000, 100);
+	SortCompare::CompareTwoSortAlgorithms("MergeSort", "QuickSort", 10000, 100);
 	return 0;
 }

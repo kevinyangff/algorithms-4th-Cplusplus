@@ -124,6 +124,7 @@
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="QuickFindUF.h" />
+    <ClInclude Include="QuickSort.h" />
     <ClInclude Include="QuickUnion.h" />
     <ClInclude Include="SelectionSort.h" />
     <ClInclude Include="SortCompare.h" />
