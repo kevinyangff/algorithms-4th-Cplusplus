@@ -118,10 +118,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bag.h" />
+    <ClInclude Include="BinaryHeapPQ.h" />
+    <ClInclude Include="BinaryHeapSort.h" />
     <ClInclude Include="HillSort.h" />
     <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="MergeBUSort.h" />
     <ClInclude Include="MergeSort.h" />
+    <ClInclude Include="OrderElementaryPQ.h" />
+    <ClInclude Include="PQCompare.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="QuickFindUF.h" />
     <ClInclude Include="QuickSort.h" />

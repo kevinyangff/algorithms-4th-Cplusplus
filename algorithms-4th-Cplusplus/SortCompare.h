@@ -10,6 +10,7 @@
 #include "MergeSort.h"
 #include "MergeBUSort.h"
 #include "QuickSort.h"
+#include "BinaryHeapSort.h"
 
 using namespace std;
 
@@ -64,6 +65,7 @@ void SortCompare::Run(string stringAlg, int* pData, int N)
 	if (stringAlg == "MergeSort") MergeSort<int>::Sort(pData, N);
 	if (stringAlg == "MergeBUSort") MergeBUSort<int>::Sort(pData, N);
 	if (stringAlg == "QuickSort") QuickSort<int>::Sort(pData, N);
+	if (stringAlg == "BinaryHeapSort") BinaryHeapSort<int>::Sort(pData, N);
 }
 
 void SortCompare::ShowElem(int* pData, int N)

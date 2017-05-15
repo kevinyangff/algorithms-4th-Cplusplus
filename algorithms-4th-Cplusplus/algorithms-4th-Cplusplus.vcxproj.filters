@@ -65,5 +65,17 @@
     <ClInclude Include="QuickSort.h">
       <Filter>Header Files\algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="OrderElementaryPQ.h">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="PQCompare.h">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryHeapPQ.h">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryHeapSort.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
