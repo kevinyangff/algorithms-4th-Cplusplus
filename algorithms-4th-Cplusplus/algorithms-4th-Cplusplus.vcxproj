@@ -123,12 +123,14 @@
     <ClInclude Include="MergeBUSort.h" />
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="Quick3Sort.h" />
     <ClInclude Include="QuickFindUF.h" />
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="QuickUnion.h" />
     <ClInclude Include="SelectionSort.h" />
     <ClInclude Include="SortCompare.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="UnorderElementaryMaxPQ.h" />
     <ClInclude Include="WeightQuickUnion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

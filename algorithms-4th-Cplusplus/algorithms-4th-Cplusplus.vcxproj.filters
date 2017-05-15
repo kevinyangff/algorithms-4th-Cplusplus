@@ -65,5 +65,11 @@
     <ClInclude Include="QuickSort.h">
       <Filter>Header Files\algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="Quick3Sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnorderElementaryMaxPQ.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -10,6 +10,7 @@
 #include "SortCompare.h"
 #include "MergeSort.h"
 #include "QuickSort.h"
+#include "UnorderElementaryMaxPQ.h"
 using namespace std;
 
 void ShowTime()
@@ -84,6 +85,6 @@ int main()
 // 	ShowTime();
 
 	//test SORT
-	SortCompare::CompareTwoSortAlgorithms("MergeSort", "QuickSort", 10000, 100);
+	SortCompare::CompareTwoSortAlgorithms("MergeSort", "Quick3Sort", 1000, 1000);
 	return 0;
 }
