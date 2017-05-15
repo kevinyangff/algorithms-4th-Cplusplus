@@ -8,8 +8,7 @@
 #include "QuickUnion.h"
 #include "WeightQuickUnion.h"
 #include "SortCompare.h"
-#include "MergeSort.h"
-#include "QuickSort.h"
+#include "PQCompare.h"
 #include "UnorderElementaryMaxPQ.h"
 using namespace std;
 
@@ -85,6 +84,9 @@ int main()
 // 	ShowTime();
 
 	//test SORT
-	SortCompare::CompareTwoSortAlgorithms("MergeSort", "Quick3Sort", 1000, 1000);
+	SortCompare::CompareTwoSortAlgorithms("MergeSort", "BinaryHeapSort", 1000, 100);
+
+	//test PQ
+//	PQCompare<int>::CompareTwoPQ("OrderElementaryPQ", "BinaryHeapPQ", 1000, 100);
 	return 0;
 }
