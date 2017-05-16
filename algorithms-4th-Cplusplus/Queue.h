@@ -5,6 +5,7 @@ template <typename ITEM>
 class Queue {
 public:
 	Queue();
+	Queue(Queue<ITEM>& q);
 	~Queue();
 	bool IsEmpty();
 	int Size();
@@ -28,6 +29,16 @@ template <typename ITEM>
 Queue<ITEM>::Queue() :m_nSize(0), m_head(0), m_tail(0)
 {
 
+}
+
+template <typename ITEM>
+Queue<ITEM>::Queue(Queue<ITEM>& q) :m_nSize(0), m_head(0), m_tail(0)
+{
+	int nSize = q.Size();
+	for (int i = 0; i < nSize; i++)
+	{
+		this->Enqueue(q.Dequeue());
+	}
 }
 
 template <typename ITEM>

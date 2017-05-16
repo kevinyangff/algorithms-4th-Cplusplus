@@ -10,6 +10,7 @@
 #include "SortCompare.h"
 #include "PQCompare.h"
 #include "UnorderElementaryMaxPQ.h"
+#include "STCompare.h"
 using namespace std;
 
 void ShowTime()
@@ -84,9 +85,12 @@ int main()
 // 	ShowTime();
 
 	//test SORT
-	SortCompare::CompareTwoSortAlgorithms("MergeSort", "BinaryHeapSort", 1000, 100);
+//	SortCompare::CompareTwoSortAlgorithms("MergeSort", "BinaryHeapSort", 1000, 100);
 
 	//test PQ
 //	PQCompare<int>::CompareTwoPQ("OrderElementaryPQ", "BinaryHeapPQ", 1000, 100);
+
+	//test ST
+	STCompare::Compare("SequentialSearchST", "BinarySearchST", 1000, 100);
 	return 0;
 }

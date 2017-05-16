@@ -65,12 +65,6 @@
     <ClInclude Include="QuickSort.h">
       <Filter>Header Files\algorithms</Filter>
     </ClInclude>
-    <ClInclude Include="Quick3Sort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UnorderElementaryMaxPQ.h">
-      <Filter>Header Files\algorithms</Filter>
-    </ClInclude>
     <ClInclude Include="OrderElementaryPQ.h">
       <Filter>Header Files\container</Filter>
     </ClInclude>
@@ -82,6 +76,24 @@
     </ClInclude>
     <ClInclude Include="BinaryHeapSort.h">
       <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="UnorderElementaryMaxPQ.h">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="Quick3Sort.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="SequentialSearchST.h">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleLinkNode.h">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="STCompare.h">
+      <Filter>Header Files\container</Filter>
+    </ClInclude>
+    <ClInclude Include="BinarySearchST.h">
+      <Filter>Header Files\container</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
