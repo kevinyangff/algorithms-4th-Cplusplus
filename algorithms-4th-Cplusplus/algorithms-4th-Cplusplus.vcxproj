@@ -120,6 +120,7 @@
     <ClInclude Include="Bag.h" />
     <ClInclude Include="BinaryHeapPQ.h" />
     <ClInclude Include="BinaryHeapSort.h" />
+    <ClInclude Include="BinarySearchST.h" />
     <ClInclude Include="HillSort.h" />
     <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="MergeBUSort.h" />
@@ -132,8 +133,11 @@
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="QuickUnion.h" />
     <ClInclude Include="SelectionSort.h" />
+    <ClInclude Include="SequentialSearchST.h" />
+    <ClInclude Include="SingleLinkNode.h" />
     <ClInclude Include="SortCompare.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="STCompare.h" />
     <ClInclude Include="UnorderElementaryMaxPQ.h" />
     <ClInclude Include="WeightQuickUnion.h" />
   </ItemGroup>
