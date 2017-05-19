@@ -3,6 +3,7 @@
 #include "SequentialSearchST.h"
 #include "BinarySearchST.h"
 #include "BST.h"
+#include "RedBlackST.h"
 
 using namespace std;
 
@@ -86,6 +87,18 @@ void STCompare::Run(string stringAlg, int* pData, int N)
 			ST.Get(pData[i]);
 		}
 	}
+	if (stringAlg == "RedBlackST")
+	{
+		RedBlackST<int, int> ST;
+		for (int i = 0; i < N; i++)
+		{
+			ST.Put(pData[i], pData[i]);
+		}
+		for (int i = 0; i < N; i++)
+		{
+			ST.Get(pData[i]);
+		}
+	}
 }
 
 void STCompare::ShowElem(string stringAlg, int* pData, int N)
@@ -138,6 +151,19 @@ void STCompare::ShowElem(string stringAlg, int* pData, int N)
 // 		{
 // 			cout << q1.Peek(i) << " ";
 // 		}
+	}
+	if (stringAlg == "RedBlackST")
+	{
+		RedBlackST<int, int> ST;
+		for (int i = 0; i < N; i++)
+		{
+			ST.Put(pData[i], pData[i]);
+		}
+		Queue<int> q = ST.Keys();
+		for (int i = 0; i < ST.Size(); i++)
+		{
+			cout << q.Peek(i) << " ";
+		}
 	}
 	cout << endl << "--------------------------------------------------------" << endl;
 }

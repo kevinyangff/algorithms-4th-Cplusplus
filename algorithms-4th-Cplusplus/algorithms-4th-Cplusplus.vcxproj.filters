@@ -79,6 +79,9 @@
     <ClInclude Include="DoubleLinkNode.h">
       <Filter>DataStructs</Filter>
     </ClInclude>
+    <ClInclude Include="RedBlackST.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DataStructs">

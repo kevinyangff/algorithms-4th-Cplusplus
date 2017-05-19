@@ -91,6 +91,6 @@ int main()
 //	PQCompare<int>::CompareTwoPQ("OrderElementaryPQ", "BinaryHeapPQ", 1000, 100);
 
 	//test ST
-	STCompare::Compare("BinarySearchST", "BST", 100000, 100);
+	STCompare::Compare("BST", "RedBlackST", 100000, 1);
 	return 0;
 }

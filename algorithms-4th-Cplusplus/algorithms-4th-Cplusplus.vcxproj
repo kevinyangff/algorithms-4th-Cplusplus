@@ -134,6 +134,7 @@
     <ClInclude Include="QuickFindUF.h" />
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="QuickUnion.h" />
+    <ClInclude Include="RedBlackST.h" />
     <ClInclude Include="SelectionSort.h" />
     <ClInclude Include="SequentialSearchST.h" />
     <ClInclude Include="SingleLinkNode.h" />
