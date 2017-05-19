@@ -2,6 +2,7 @@
 #include <string>
 #include "SequentialSearchST.h"
 #include "BinarySearchST.h"
+#include "BST.h"
 
 using namespace std;
 
@@ -73,6 +74,18 @@ void STCompare::Run(string stringAlg, int* pData, int N)
 			ST.Get(pData[i]);
 		}
 	}
+	if (stringAlg == "BST")
+	{
+		BST<int, int> ST;
+		for (int i = 0; i < N; i++)
+		{
+			ST.Put(pData[i], pData[i]);
+		}
+		for (int i = 0; i < N; i++)
+		{
+			ST.Get(pData[i]);
+		}
+	}
 }
 
 void STCompare::ShowElem(string stringAlg, int* pData, int N)
@@ -102,6 +115,29 @@ void STCompare::ShowElem(string stringAlg, int* pData, int N)
 		{
 			cout << q.Peek(i) << " ";
 		}
+	}
+	if (stringAlg == "BST")
+	{
+		BST<int, int> ST;
+		for (int i = 0; i < N; i++)
+		{
+			ST.Put(pData[i], pData[i]);
+		}
+		Queue<int> q = ST.Keys();
+		for (int i = 0; i < ST.Size(); i++)
+		{
+			cout << q.Peek(i) << " ";
+		}
+// 		cout << endl << "Rank(10000)=" << ST.Rank(10000) << endl;
+// 		cout << "Select(Rank(10000))=" << ST.Select(ST.Rank(10000)) << endl;
+// 		cout << "Floor(10000)=" << ST.Floor(10000) << endl;
+// 		cout << "Ceiling(10000)=" << ST.Ceiling(10000) << endl;
+// 		cout<< ST.Delete(ST.Select(4)) <<endl;
+// 		Queue<int> q1 = ST.Keys();
+// 		for (int i = 0; i < ST.Size(); i++)
+// 		{
+// 			cout << q1.Peek(i) << " ";
+// 		}
 	}
 	cout << endl << "--------------------------------------------------------" << endl;
 }

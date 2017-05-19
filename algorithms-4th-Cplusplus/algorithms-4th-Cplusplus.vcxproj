@@ -121,6 +121,8 @@
     <ClInclude Include="BinaryHeapPQ.h" />
     <ClInclude Include="BinaryHeapSort.h" />
     <ClInclude Include="BinarySearchST.h" />
+    <ClInclude Include="BST.h" />
+    <ClInclude Include="DoubleLinkNode.h" />
     <ClInclude Include="HillSort.h" />
     <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="MergeBUSort.h" />
