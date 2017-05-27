@@ -30,7 +30,7 @@ void STCompare::Compare(string stringAlg1, string stringAlg2, int N, int T)
 		srand(time(NULL));
 		for (int i = 0; i < N; i++)
 		{
-			pData1[i] = rand();
+			pData1[i] = rand()*(rand()/2);
 			pData2[i] = pData1[i];
 		}
 		clock_t start = clock();
@@ -41,8 +41,8 @@ void STCompare::Compare(string stringAlg1, string stringAlg2, int N, int T)
 		Run(stringAlg2, pData2, N);
 		seconds2 += (double)(clock() - start);
 	}
-	ShowElem(stringAlg1, pData1, N);
-	ShowElem(stringAlg2, pData2, N);
+	//ShowElem(stringAlg1, pData1, N);
+	//ShowElem(stringAlg2, pData2, N);
 	cout << stringAlg1 << " total seconds: " << seconds1 / CLOCKS_PER_SEC << endl;
 	cout << stringAlg2 << " total seconds: " << seconds2 / CLOCKS_PER_SEC << endl;
 	delete pData2;
@@ -58,9 +58,12 @@ void STCompare::Run(string stringAlg, int* pData, int N)
 		{
 			ST.Put(pData[i], pData[i]);
 		}
-		for (int i = 0; i < N; i++)
+		for(int j=0; j<1; j++)
 		{
-			ST.Get(pData[i]);
+			for (int i = 0; i < N; i++)
+			{
+				ST.Get(pData[i]);
+			}
 		}
 	}
 	if (stringAlg == "BinarySearchST")
@@ -70,9 +73,12 @@ void STCompare::Run(string stringAlg, int* pData, int N)
 		{
 			ST.Put(pData[i], pData[i]);
 		}
-		for (int i = 0; i < N; i++)
+		for (int j = 0; j < 1; j++)
 		{
-			ST.Get(pData[i]);
+			for (int i = 0; i < N; i++)
+			{
+				ST.Get(pData[i]);
+			}
 		}
 	}
 	if (stringAlg == "BST")
@@ -82,9 +88,12 @@ void STCompare::Run(string stringAlg, int* pData, int N)
 		{
 			ST.Put(pData[i], pData[i]);
 		}
-		for (int i = 0; i < N; i++)
+		for (int j = 0; j < 20; j++)
 		{
-			ST.Get(pData[i]);
+			for (int i = 0; i < N; i++)
+			{
+				ST.Get(pData[i]);
+			}
 		}
 	}
 	if (stringAlg == "RedBlackST")
@@ -94,9 +103,12 @@ void STCompare::Run(string stringAlg, int* pData, int N)
 		{
 			ST.Put(pData[i], pData[i]);
 		}
-		for (int i = 0; i < N; i++)
+		for (int j = 0; j < 20; j++)
 		{
-			ST.Get(pData[i]);
+			for (int i = 0; i < N; i++)
+			{
+				ST.Get(pData[i]);
+			}
 		}
 	}
 }

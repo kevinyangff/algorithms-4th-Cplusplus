@@ -71,6 +71,7 @@ template<typename KEY, typename VALUE>
 void RedBlackST<KEY, VALUE>::Put(KEY k, VALUE v)
 {
 	m_root = Put(m_root, k, v);
+	m_root->m_color = DoubleLinkNode<KEY, VALUE>::BLACK;
 	return;
 }
 
@@ -114,6 +115,9 @@ DoubleLinkNode<KEY, VALUE>* RedBlackST<KEY, VALUE>::Put(DoubleLinkNode<KEY, VALU
 			}
 		}
 	}
+	//if (root->right->m_color == DoubleLinkNode<KEY, VALUE>::RED && root->left->m_color != DoubleLinkNode<KEY, VALUE>::RED) root = RotateLeft(root);
+	//if (root->left->m_color == DoubleLinkNode<KEY, VALUE>::RED && root->left->left->m_color == DoubleLinkNode<KEY, VALUE>::RED) root = RotateRight(root);
+	//if (root->left->m_color == DoubleLinkNode<KEY, VALUE>::RED && root->right->m_color == DoubleLinkNode<KEY, VALUE>::RED) FlipColors(root);
 	root->N = Size(root->left) + Size(root->right) + 1;
 	return root;
 }
@@ -287,6 +291,10 @@ DoubleLinkNode<KEY, VALUE>* RedBlackST<KEY, VALUE>::DelMax(DoubleLinkNode<KEY, V
 		DoubleLinkNode<KEY, VALUE>* pTemp = root->left;
 		delete root;
 		root = pTemp;
+// 		if (root != 0 && root.m_color == DoubleLinkNode<KEY, VALUE>::RED)
+// 		{
+// 			root->m_color = DoubleLinkNode<KEY, VALUE>::BLACK;
+// 		}
 	}
 	Size(root);
 	return root;
@@ -542,8 +550,4 @@ void RedBlackST<KEY, VALUE>::FlipColors(DoubleLinkNode<KEY, VALUE>* h)
 	h->left->m_color = DoubleLinkNode<KEY, VALUE>::BLACK;
 	h->right->m_color = DoubleLinkNode<KEY, VALUE>::BLACK;
 	h->m_color = DoubleLinkNode<KEY, VALUE>::RED;
-	if (h == m_root)
-	{
-		h->m_color = DoubleLinkNode<KEY, VALUE>::BLACK;
-	}
 }
