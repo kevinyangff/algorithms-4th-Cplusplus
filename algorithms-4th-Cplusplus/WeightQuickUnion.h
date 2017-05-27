@@ -69,6 +69,10 @@ void WeightQuickUnionUF::Union(int x, int y)
 	else
 	{
 		m_pData[nXComponent] = nYComponent;
+		if (m_pWeight[nYComponent] == m_pWeight[nXComponent])
+		{
+			m_pWeight[nYComponent]++;
+		}
 	}
 	m_nCount--;
 }
