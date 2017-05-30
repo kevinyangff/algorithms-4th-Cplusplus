@@ -4,6 +4,7 @@ class Bag
 {
 public:
 	Bag();
+	Bag(Bag<ITEM>& b);
 	~Bag();
 	int Size();
 	bool IsEmpty();
@@ -24,6 +25,15 @@ private:
 template <typename ITEM>
 Bag<ITEM>::Bag():m_nSize(0), m_pFirst(0)
 {}
+
+template<typename ITEM>
+Bag<ITEM>::Bag(Bag<ITEM>& b): m_nSize(0), m_pFirst(0)
+{
+	for (int i = 0; i < b.Size(); i++)
+	{
+		this->Add(b.Peek(i));
+	}
+}
 
 template <typename ITEM>
 Bag<ITEM>::~Bag()

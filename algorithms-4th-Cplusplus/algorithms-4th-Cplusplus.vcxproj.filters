@@ -37,42 +37,6 @@
     <ClInclude Include="UnorderElementaryMaxPQ.h">
       <Filter>DataStructs</Filter>
     </ClInclude>
-    <ClInclude Include="BinaryHeapSort.h">
-      <Filter>Algorithms</Filter>
-    </ClInclude>
-    <ClInclude Include="HillSort.h">
-      <Filter>Algorithms</Filter>
-    </ClInclude>
-    <ClInclude Include="InsertionSort.h">
-      <Filter>Algorithms</Filter>
-    </ClInclude>
-    <ClInclude Include="MergeBUSort.h">
-      <Filter>Algorithms</Filter>
-    </ClInclude>
-    <ClInclude Include="MergeSort.h">
-      <Filter>Algorithms</Filter>
-    </ClInclude>
-    <ClInclude Include="Quick3Sort.h">
-      <Filter>Algorithms</Filter>
-    </ClInclude>
-    <ClInclude Include="QuickSort.h">
-      <Filter>Algorithms</Filter>
-    </ClInclude>
-    <ClInclude Include="SelectionSort.h">
-      <Filter>Algorithms</Filter>
-    </ClInclude>
-    <ClInclude Include="SortCompare.h">
-      <Filter>Algorithms</Filter>
-    </ClInclude>
-    <ClInclude Include="WeightQuickUnion.h">
-      <Filter>DataStructs</Filter>
-    </ClInclude>
-    <ClInclude Include="QuickUnion.h">
-      <Filter>DataStructs</Filter>
-    </ClInclude>
-    <ClInclude Include="QuickFindUF.h">
-      <Filter>DataStructs</Filter>
-    </ClInclude>
     <ClInclude Include="BST.h">
       <Filter>DataStructs</Filter>
     </ClInclude>
@@ -82,6 +46,90 @@
     <ClInclude Include="RedBlackST.h">
       <Filter>DataStructs</Filter>
     </ClInclude>
+    <ClInclude Include="SortCompare.h">
+      <Filter>Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryHeapSort.h">
+      <Filter>Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="HillSort.h">
+      <Filter>Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertionSort.h">
+      <Filter>Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="MergeBUSort.h">
+      <Filter>Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="MergeSort.h">
+      <Filter>Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="Quick3Sort.h">
+      <Filter>Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickSort.h">
+      <Filter>Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionSort.h">
+      <Filter>Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickFindUF.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickUnion.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="WeightQuickUnion.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthFirstSearch.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Search.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="BreadthFirshSearch.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Paths.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthFirstPaths.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="BreadthFirshPaths.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthFirstCC.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="CC.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="BreadthFirshCC.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Cycle.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthFirstCycle.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="BreadthFirstCycle.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="TwoColor.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthFirstTwoColor.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="BreadthFirstTwoColor.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DataStructs">
@@ -89,6 +137,12 @@
     </Filter>
     <Filter Include="Algorithms">
       <UniqueIdentifier>{3e25c01e-b9ce-4956-a055-f53ef3211f8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithms\Sort">
+      <UniqueIdentifier>{0273eace-b746-47d0-b013-a760d18525ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithms\Graph">
+      <UniqueIdentifier>{7a7bf881-15ee-46e8-9005-cb083d278a43}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

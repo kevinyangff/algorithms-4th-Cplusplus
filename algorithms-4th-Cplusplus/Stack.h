@@ -5,6 +5,7 @@ class Stack
 {
 public:
 	Stack();
+	Stack(Stack& s);
 	virtual ~Stack();
 	void Push(ITEM);
 	ITEM Pop();
@@ -27,6 +28,20 @@ private:
 template<typename ITEM>
 Stack<ITEM>::Stack() :m_top(0), m_nSize(0)
 {
+}
+
+template<typename ITEM>
+Stack<ITEM>::Stack(Stack& s) : m_top(0), m_nSize(0)
+{
+	Stack<int> sTemp;
+	while (!s.IsEmpty())
+	{
+		sTemp.Push(s.Pop());
+	}
+	while (!sTemp.IsEmpty())
+	{
+		this->Push(sTemp.Pop());
+	}
 }
 
 template<typename ITEM>

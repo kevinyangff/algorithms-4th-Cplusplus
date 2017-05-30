@@ -11,6 +11,17 @@
 #include "PQCompare.h"
 #include "UnorderElementaryMaxPQ.h"
 #include "STCompare.h"
+#include "Graph.h"
+#include "DepthFirstSearch.h"
+#include "BreadthFirshSearch.h"
+#include "DepthFirstPaths.h"
+#include "BreadthFirshPaths.h"
+#include "DepthFirstCC.h"
+#include "BreadthFirshCC.h"
+#include "DepthFirstCycle.h"
+#include "BreadthFirstCycle.h"
+#include "DepthFirstTwoColor.h"
+#include "BreadthFirstTwoColor.h"
 using namespace std;
 
 void ShowTime()
@@ -91,6 +102,47 @@ int main()
 //	PQCompare<int>::CompareTwoPQ("OrderElementaryPQ", "BinaryHeapPQ", 1000, 100);
 
 	//test ST
-	STCompare::Compare("BST", "RedBlackST", 10000000, 1);
+//	STCompare::Compare("BST", "RedBlackST", 10000000, 1);
+	ifstream ifs("../data/tinyG.txt");
+	Graph  G(ifs);
+	G.Show();
+	ifs.close();
+ 	DepthFirstSearch dfs(G, 0);
+ 	BreadthFirstSearch bfs(G, 0);
+ 	cout << "Search Result Count are " << dfs.Count() << " and " << bfs.Count() << endl;
+	DepthFirstPaths dfp(G, 0);
+	BreadthFirstPaths bfp(G, 0);
+	cout << "0 path to 6 are: " << endl;
+	Stack<int> s1 = dfp.PathTo(6);
+	while (!s1.IsEmpty())
+	{
+		cout << s1.Pop();
+		if(!s1.IsEmpty())
+		{
+			cout << "-";
+		}
+	}
+	cout << endl;
+	Stack<int> s2 = bfp.PathTo(6);
+	while (!s2.IsEmpty())
+	{
+		cout << s2.Pop();
+		if (!s2.IsEmpty())
+		{
+			cout << "-";
+		}
+	}
+	cout << endl;
+	DepthFirstCC dfcc(G);
+	BreadthFirstCC bfcc(G);
+	cout << "CC are: " << dfcc.Count() << " and " << bfcc.Count() << endl;
+
+	DepthFirstCycle dfcy(G);
+	BreadthFirstCycle bfcy(G);
+	cout << "Cycle are " << dfcy.HasCycle() << " and " << bfcy.HasCycle() << endl;
+
+	DepthFirstTwoColor dftc(G);
+	BreadthFirstTwoColor bftc(G);
+	cout << "TwoColor are " << dftc.IsTwoColor() << " and " << bftc.IsTwoColor() << endl;
 	return 0;
 }
