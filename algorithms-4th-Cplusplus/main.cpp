@@ -22,6 +22,13 @@
 #include "BreadthFirstCycle.h"
 #include "DepthFirstTwoColor.h"
 #include "BreadthFirstTwoColor.h"
+#include "DirectedDFSearch.h"
+#include "DirectedDFPaths.h"
+#include "DirectedBFPaths.h"
+#include "DirectedDFCycle.h"
+#include "DirectedDFOrder.h"
+#include "DirectedDFTopologic.h"
+#include "DirectedDFSCC.h"
 using namespace std;
 
 void ShowTime()
@@ -103,27 +110,71 @@ int main()
 
 	//test ST
 //	STCompare::Compare("BST", "RedBlackST", 10000000, 1);
-	ifstream ifs("../data/tinyG.txt");
-	Graph  G(ifs);
-	G.Show();
+
+	//test Graph
+// 	ifstream ifs("../data/tinyG.txt");
+// 	Graph  G(ifs);
+// 	G.Show();
+// 	ifs.close();
+//  	DepthFirstSearch dfs(G, 0);
+//  	BreadthFirstSearch bfs(G, 0);
+//  	cout << "Search Result Count are " << dfs.Count() << " and " << bfs.Count() << endl;
+// 	DepthFirstPaths dfp(G, 0);
+// 	BreadthFirstPaths bfp(G, 0);
+// 	cout << "0 path to 6 are: " << endl;
+// 	Stack<int> s1 = dfp.PathTo(6);
+// 	while (!s1.IsEmpty())
+// 	{
+// 		cout << s1.Pop();
+// 		if(!s1.IsEmpty())
+// 		{
+// 			cout << "-";
+// 		}
+// 	}
+// 	cout << endl;
+// 	Stack<int> s2 = bfp.PathTo(6);
+// 	while (!s2.IsEmpty())
+// 	{
+// 		cout << s2.Pop();
+// 		if (!s2.IsEmpty())
+// 		{
+// 			cout << "-";
+// 		}
+// 	}
+// 	cout << endl;
+// 	DepthFirstCC dfcc(G);
+// 	BreadthFirstCC bfcc(G);
+// 	cout << "CC are: " << dfcc.Count() << " and " << bfcc.Count() << endl;
+// 
+// 	DepthFirstCycle dfcy(G);
+// 	BreadthFirstCycle bfcy(G);
+// 	cout << "Cycle are " << dfcy.HasCycle() << " and " << bfcy.HasCycle() << endl;
+// 
+// 	DepthFirstTwoColor dftc(G);
+// 	BreadthFirstTwoColor bftc(G);
+// 	cout << "TwoColor are " << dftc.IsTwoColor() << " and " << bftc.IsTwoColor() << endl;
+
+	//test DirectedGraph
+	ifstream ifs("../data/tinyDAG.txt");
+	DiGraph G(ifs);
 	ifs.close();
- 	DepthFirstSearch dfs(G, 0);
- 	BreadthFirstSearch bfs(G, 0);
- 	cout << "Search Result Count are " << dfs.Count() << " and " << bfs.Count() << endl;
-	DepthFirstPaths dfp(G, 0);
-	BreadthFirstPaths bfp(G, 0);
-	cout << "0 path to 6 are: " << endl;
-	Stack<int> s1 = dfp.PathTo(6);
+	G.Show();
+	DirectedDFSearch DDFS(G, 0);
+	cout << "Search result count is " << DDFS.Count() << endl;
+	DirectedDFPaths DDFP(G, 0);
+	DirectedBFPaths DBFP(G, 0);
+	cout << "0 path to 4 are: " << endl;
+	Stack<int> s1 = DDFP.PathTo(4);
 	while (!s1.IsEmpty())
 	{
-		cout << s1.Pop();
-		if(!s1.IsEmpty())
-		{
-			cout << "-";
+	 	cout << s1.Pop();
+	 	if(!s1.IsEmpty())
+	 	{
+	 		cout << "-";
 		}
 	}
 	cout << endl;
-	Stack<int> s2 = bfp.PathTo(6);
+	Stack<int> s2 = DBFP.PathTo(4);
 	while (!s2.IsEmpty())
 	{
 		cout << s2.Pop();
@@ -133,16 +184,44 @@ int main()
 		}
 	}
 	cout << endl;
-	DepthFirstCC dfcc(G);
-	BreadthFirstCC bfcc(G);
-	cout << "CC are: " << dfcc.Count() << " and " << bfcc.Count() << endl;
-
-	DepthFirstCycle dfcy(G);
-	BreadthFirstCycle bfcy(G);
-	cout << "Cycle are " << dfcy.HasCycle() << " and " << bfcy.HasCycle() << endl;
-
-	DepthFirstTwoColor dftc(G);
-	BreadthFirstTwoColor bftc(G);
-	cout << "TwoColor are " << dftc.IsTwoColor() << " and " << bftc.IsTwoColor() << endl;
+	DirectedDFCycle DDFC(G);
+	cout << "G has cycle: " << DDFC.HasCycle() << endl;
+	DirectedDFOrder DDFO(G);
+	Queue<int> pre = DDFO.Pre();
+	Queue<int> post = DDFO.Post();
+	Stack<int> reversePost = DDFO.ReversePost();
+	cout << "Pre:" << endl;
+	while (!pre.IsEmpty())
+	{
+		cout << pre.Dequeue() << " ";
+	}
+	cout << endl;
+	cout << "Post:" << endl;
+	while (!post.IsEmpty())
+	{
+		cout << post.Dequeue() << " ";
+	}
+	cout << endl;
+	cout << "ReversePost:" << endl;
+	while (!reversePost.IsEmpty())
+	{
+		cout << reversePost.Pop() << " ";
+	}
+	cout << endl;
+	DirectedDFTopologic DDFT(G);
+	cout << "Topologic is :" << endl;
+	if (DDFT.HasOrder())
+	{
+		Stack<int> tp = DDFT.Order();
+		while (!tp.IsEmpty())
+		{
+			cout << tp.Pop() << " ";
+		}
+	}
+	else
+	{
+		cout << "has cycle,can't topologic";
+	}
+	cout << endl;
 	return 0;
 }

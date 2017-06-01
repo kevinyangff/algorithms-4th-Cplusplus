@@ -134,6 +134,14 @@
     <ClInclude Include="DepthFirstPaths.h" />
     <ClInclude Include="DepthFirstSearch.h" />
     <ClInclude Include="DepthFirstTwoColor.h" />
+    <ClInclude Include="DiGraph.h" />
+    <ClInclude Include="DirectedBFPaths.h" />
+    <ClInclude Include="DirectedDFCycle.h" />
+    <ClInclude Include="DirectedDFOrder.h" />
+    <ClInclude Include="DirectedDFPaths.h" />
+    <ClInclude Include="DirectedDFSCC.h" />
+    <ClInclude Include="DirectedDFSearch.h" />
+    <ClInclude Include="DirectedDFTopologic.h" />
     <ClInclude Include="DoubleLinkNode.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="HillSort.h" />

@@ -130,6 +130,30 @@
     <ClInclude Include="BreadthFirstTwoColor.h">
       <Filter>Algorithms\Graph</Filter>
     </ClInclude>
+    <ClInclude Include="DirectedDFSearch.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DiGraph.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectedDFPaths.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectedBFPaths.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectedDFCycle.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectedDFOrder.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectedDFTopologic.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectedDFSCC.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DataStructs">
