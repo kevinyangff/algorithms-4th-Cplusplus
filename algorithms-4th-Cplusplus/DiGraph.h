@@ -52,7 +52,11 @@ DiGraph::DiGraph(DiGraph& DG)
 	m_pBag = new Bag<int>[m_nV];
 	for (int i = 0; i < m_nV; i++)
 	{
-		m_pBag[i] = DG.Adj(i);
+		//m_pBag[i] = DG.Adj(i);//no custom operator = constructor
+		for (int j = 0; j < DG.Adj(i).Size(); j++)
+		{
+			m_pBag->Add(DG.Adj(i).Peek(j));
+		}
 	}
 }
 
@@ -95,7 +99,8 @@ DiGraph DiGraph::reverse()
 		Bag<int> b = this->Adj(i);
 		for (int j = 0; j < b.Size(); j++)
 		{
-			DG.AddEdge(b.Peek(j), i);
+			int nV = b.Peek(j);
+			DG.AddEdge(nV, i);
 		}
 	}
 	return DG;

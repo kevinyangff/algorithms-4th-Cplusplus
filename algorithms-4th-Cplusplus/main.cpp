@@ -223,5 +223,7 @@ int main()
 		cout << "has cycle,can't topologic";
 	}
 	cout << endl;
+	DirectedDFSCC DDFSCC(G);
+	cout << "SCC count is " << DDFSCC.Count() << endl;
 	return 0;
 }
