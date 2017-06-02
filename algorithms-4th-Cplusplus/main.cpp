@@ -106,7 +106,7 @@ int main()
 //	SortCompare::CompareTwoSortAlgorithms("MergeSort", "BinaryHeapSort", 1000, 100);
 
 	//test PQ
-//	PQCompare<int>::CompareTwoPQ("OrderElementaryPQ", "BinaryHeapPQ", 1000, 100);
+	PQCompare<int>::CompareTwoPQ("BinaryHeapMinPQ", "BinaryHeapIndexMinPQ", 10, 1);
 
 	//test ST
 //	STCompare::Compare("BST", "RedBlackST", 10000000, 1);
@@ -155,75 +155,75 @@ int main()
 // 	cout << "TwoColor are " << dftc.IsTwoColor() << " and " << bftc.IsTwoColor() << endl;
 
 	//test DirectedGraph
-	ifstream ifs("../data/tinyDAG.txt");
-	DiGraph G(ifs);
-	ifs.close();
-	G.Show();
-	DirectedDFSearch DDFS(G, 0);
-	cout << "Search result count is " << DDFS.Count() << endl;
-	DirectedDFPaths DDFP(G, 0);
-	DirectedBFPaths DBFP(G, 0);
-	cout << "0 path to 4 are: " << endl;
-	Stack<int> s1 = DDFP.PathTo(4);
-	while (!s1.IsEmpty())
-	{
-	 	cout << s1.Pop();
-	 	if(!s1.IsEmpty())
-	 	{
-	 		cout << "-";
-		}
-	}
-	cout << endl;
-	Stack<int> s2 = DBFP.PathTo(4);
-	while (!s2.IsEmpty())
-	{
-		cout << s2.Pop();
-		if (!s2.IsEmpty())
-		{
-			cout << "-";
-		}
-	}
-	cout << endl;
-	DirectedDFCycle DDFC(G);
-	cout << "G has cycle: " << DDFC.HasCycle() << endl;
-	DirectedDFOrder DDFO(G);
-	Queue<int> pre = DDFO.Pre();
-	Queue<int> post = DDFO.Post();
-	Stack<int> reversePost = DDFO.ReversePost();
-	cout << "Pre:" << endl;
-	while (!pre.IsEmpty())
-	{
-		cout << pre.Dequeue() << " ";
-	}
-	cout << endl;
-	cout << "Post:" << endl;
-	while (!post.IsEmpty())
-	{
-		cout << post.Dequeue() << " ";
-	}
-	cout << endl;
-	cout << "ReversePost:" << endl;
-	while (!reversePost.IsEmpty())
-	{
-		cout << reversePost.Pop() << " ";
-	}
-	cout << endl;
-	DirectedDFTopologic DDFT(G);
-	cout << "Topologic is :" << endl;
-	if (DDFT.HasOrder())
-	{
-		Stack<int> tp = DDFT.Order();
-		while (!tp.IsEmpty())
-		{
-			cout << tp.Pop() << " ";
-		}
-	}
-	else
-	{
-		cout << "has cycle,can't topologic";
-	}
-	cout << endl;
-	DirectedDFSCC DDFSCC(G);
-	cout << "SCC count is " << DDFSCC.Count() << endl;
+// 	ifstream ifs("../data/tinyDAG.txt");
+// 	DiGraph G(ifs);
+// 	ifs.close();
+// 	G.Show();
+// 	DirectedDFSearch DDFS(G, 0);
+// 	cout << "Search result count is " << DDFS.Count() << endl;
+// 	DirectedDFPaths DDFP(G, 0);
+// 	DirectedBFPaths DBFP(G, 0);
+// 	cout << "0 path to 4 are: " << endl;
+// 	Stack<int> s1 = DDFP.PathTo(4);
+// 	while (!s1.IsEmpty())
+// 	{
+// 	 	cout << s1.Pop();
+// 	 	if(!s1.IsEmpty())
+// 	 	{
+// 	 		cout << "-";
+// 		}
+// 	}
+// 	cout << endl;
+// 	Stack<int> s2 = DBFP.PathTo(4);
+// 	while (!s2.IsEmpty())
+// 	{
+// 		cout << s2.Pop();
+// 		if (!s2.IsEmpty())
+// 		{
+// 			cout << "-";
+// 		}
+// 	}
+// 	cout << endl;
+// 	DirectedDFCycle DDFC(G);
+// 	cout << "G has cycle: " << DDFC.HasCycle() << endl;
+// 	DirectedDFOrder DDFO(G);
+// 	Queue<int> pre = DDFO.Pre();
+// 	Queue<int> post = DDFO.Post();
+// 	Stack<int> reversePost = DDFO.ReversePost();
+// 	cout << "Pre:" << endl;
+// 	while (!pre.IsEmpty())
+// 	{
+// 		cout << pre.Dequeue() << " ";
+// 	}
+// 	cout << endl;
+// 	cout << "Post:" << endl;
+// 	while (!post.IsEmpty())
+// 	{
+// 		cout << post.Dequeue() << " ";
+// 	}
+// 	cout << endl;
+// 	cout << "ReversePost:" << endl;
+// 	while (!reversePost.IsEmpty())
+// 	{
+// 		cout << reversePost.Pop() << " ";
+// 	}
+// 	cout << endl;
+// 	DirectedDFTopologic DDFT(G);
+// 	cout << "Topologic is :" << endl;
+// 	if (DDFT.HasOrder())
+// 	{
+// 		Stack<int> tp = DDFT.Order();
+// 		while (!tp.IsEmpty())
+// 		{
+// 			cout << tp.Pop() << " ";
+// 		}
+// 	}
+// 	else
+// 	{
+// 		cout << "has cycle,can't topologic";
+// 	}
+// 	cout << endl;
+// 	DirectedDFSCC DDFSCC(G);
+// 	cout << "SCC count is " << DDFSCC.Count() << endl;
 	return 0;
 }

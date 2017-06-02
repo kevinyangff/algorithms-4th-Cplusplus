@@ -5,7 +5,7 @@ class BinaryHeapIndexMinPQ
 {
 public:
 	BinaryHeapIndexMinPQ(int N);
-	~BinaryHeapIndexMinPQ()
+	~BinaryHeapIndexMinPQ();
 	void Insert(int nIndex, T data);
 	void Change(int nIndex, T data);
 	bool Contain(int nIndex);
@@ -74,7 +74,7 @@ void BinaryHeapIndexMinPQ<T>::Insert(int nIndex, T data)
 	m_pDataIndex[nIndex] = data;
 	m_pMapFromIndexToPQ[nIndex] = m_nValidLength;
 	m_pMapFromPQToIndex[m_nValidLength] = nIndex;
-	Swim();
+	Swim(m_nValidLength);
 }
 
 template<typename T>
@@ -107,9 +107,8 @@ void BinaryHeapIndexMinPQ<T>::Delete(int nIndex)
 {
 	assert(this->Contain(nIndex));
 	int nPQ = m_pMapFromIndexToPQ[nIndex];
-	Exch(nPQ, m_nValidLength);
+	Exch(m_pData, nPQ, m_nValidLength);
 	m_pMapFromIndexToPQ[nIndex] = 0;
-	m_pMapFromPQToIndex[nPQ] = m_pMapFromPQToIndex[m_nValidLength];
 	m_pMapFromPQToIndex[m_nValidLength] = m_nSize;
 	m_nValidLength--;
 	Sink(nPQ);
@@ -133,7 +132,9 @@ template<typename T>
 int BinaryHeapIndexMinPQ<T>::DelMin()
 {
 	assert(!this->IsEmpty());
-	this->Delete(m_pMapFromPQToIndex(1));
+	int n = m_pMapFromPQToIndex[1];
+	this->Delete(n);
+	return n;
 }
 
 template<typename T>
@@ -149,10 +150,75 @@ int BinaryHeapIndexMinPQ<T>::Size()
 }
 
 template<typename T>
-void BinaryHeapIndexMinPQ<T>::Swim(int n);
+void BinaryHeapIndexMinPQ<T>::Swim(int n)
+{
+	for (int i = n; i/2 >= 1; i /= 2)
+	{
+		if (m_pData[i] < m_pData[i / 2])
+		{
+			Exch(m_pData, i, i / 2);
+		}
+		else
+		{
+			break;
+		}
+	}
+}
 
 template<typename T>
-void BinaryHeapIndexMinPQ<T>::Sink(int n);
+void BinaryHeapIndexMinPQ<T>::Sink(int n)
+{
+	for (int i = n; i <= m_nValidLength / 2;)
+	{
+		if (2 * i + 1 <= m_nValidLength)
+		{
+			if (m_pData[i] > m_pData[2 * i] || m_pData[i] > m_pData[2 * i + 1])
+			{
+				if (m_pData[2 * i] < m_pData[2 * i + 1])
+				{
+					Exch(m_pData, i, 2 * i);
+					i = 2 * i;
+				}
+				else
+				{
+					Exch(m_pData, i, 2 * i + 1);
+					i = 2 * i + 1;
+				}
+			}
+			else
+			{
+				break;
+			}
+		}
+		else
+		{
+			if (m_pData[i] > m_pData[2 * i])
+			{
+				Exch(m_pData, i, 2 * i);
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+}
 
 template<typename T>
-void BinaryHeapIndexMinPQ<T>::Exch(T* pData, int i, int j);
+void BinaryHeapIndexMinPQ<T>::Exch(T* pData, int i, int j)
+{
+	int nIndexI = m_pMapFromPQToIndex[i];
+	int nIndexJ = m_pMapFromPQToIndex[j];
+
+	int nIndexTemp = m_pMapFromPQToIndex[i];
+	m_pMapFromPQToIndex[i] = m_pMapFromPQToIndex[j];
+	m_pMapFromPQToIndex[j] = nIndexTemp;
+	
+	int nPQTemp = m_pMapFromIndexToPQ[nIndexI];
+	m_pMapFromIndexToPQ[nIndexI] = m_pMapFromIndexToPQ[nIndexJ];
+	m_pMapFromIndexToPQ[nIndexJ] = nPQTemp;
+	
+	T temp = m_pData[i];
+	m_pData[i] = m_pData[j];
+	m_pData[j] = temp;
+}

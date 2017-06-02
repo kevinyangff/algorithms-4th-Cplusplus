@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 #include "OrderElementaryPQ.h"
-#include "BinaryHeapPQ.h"
+#include "BinaryHeapMaxPQ.h"
+#include "BinaryHeapMinPQ.h"
+#include "BinaryHeapIndexMinPQ.h"
 using namespace std;
 
 template<typename T>
@@ -59,12 +61,32 @@ void PQCompare<T>::Run(string stringAlg, int* pData, int N)
 			PQ.DelMax();
 		}
 	}
-	if (stringAlg == "BinaryHeapPQ")
+	if (stringAlg == "BinaryHeapMaxPQ")
 	{
 		BinaryHeapMaxPQ<int> PQ(pData, N);
 		while (!PQ.IsEmpty())
 		{
 			PQ.DelMax();
+		}
+	}
+	if (stringAlg == "BinaryHeapMinPQ")
+	{
+		BinaryHeapMinPQ<int> MinPQ(pData, N);
+		while (!MinPQ.IsEmpty())
+		{
+			MinPQ.DelMin();
+		}
+	}
+	if (stringAlg == "BinaryHeapIndexMinPQ")
+	{
+		BinaryHeapIndexMinPQ<int> IndexMinPQ(N);
+		for (int i = 0; i < N; i++)
+		{
+			IndexMinPQ.Insert(i, pData[i]);
+		}
+		while (!IndexMinPQ.IsEmpty())
+		{
+			IndexMinPQ.DelMin();
 		}
 	}
 }
@@ -80,12 +102,41 @@ void PQCompare<T>::ShowElem(string stringAlg, int* pData, int N)
 			cout << PQ.DelMax() << " ";
 		}
 	}
-	if (stringAlg == "BinaryHeapPQ")
+	if (stringAlg == "BinaryHeapMaxPQ")
 	{
 		BinaryHeapMaxPQ<int> PQ(pData, N);
 		while (!PQ.IsEmpty())
 		{
 			cout << PQ.DelMax() << " ";
+		}
+	}
+	if (stringAlg == "BinaryHeapMinPQ")
+	{
+		BinaryHeapMinPQ<int> MinPQ(pData, N);
+		while (!MinPQ.IsEmpty())
+		{
+			cout << MinPQ.DelMin() << " ";
+		}
+	}
+	if (stringAlg == "BinaryHeapIndexMinPQ")
+	{
+		cout << "original data:" << endl;
+		BinaryHeapIndexMinPQ<int> IndexMinPQ(N);
+		for (int i = 0; i < N; i++)
+		{
+			IndexMinPQ.Insert(i, i);
+			cout << pData[i] << " ";
+		}
+		for (int i = 0; i < N; i++)
+		{
+			IndexMinPQ.Change(i, pData[i]);
+		}
+		cout << endl;
+		while (!IndexMinPQ.IsEmpty())
+		{
+			//cout << pData[IndexMinPQ.DelMin()] << " ";
+			cout << IndexMinPQ.Min() << " ";
+			IndexMinPQ.DelMin();
 		}
 	}
 	cout << endl << "--------------------------------------------------------" << endl;
