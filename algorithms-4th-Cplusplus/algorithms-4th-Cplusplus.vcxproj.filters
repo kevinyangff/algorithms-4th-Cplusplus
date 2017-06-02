@@ -7,9 +7,6 @@
     <ClInclude Include="Bag.h">
       <Filter>DataStructs</Filter>
     </ClInclude>
-    <ClInclude Include="BinaryHeapPQ.h">
-      <Filter>DataStructs</Filter>
-    </ClInclude>
     <ClInclude Include="BinarySearchST.h">
       <Filter>DataStructs</Filter>
     </ClInclude>
@@ -153,6 +150,15 @@
     </ClInclude>
     <ClInclude Include="DirectedDFSCC.h">
       <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryHeapMaxPQ.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryHeapMinPQ.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryHeapIndexMinPQ.h">
+      <Filter>DataStructs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

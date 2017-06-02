@@ -61,7 +61,7 @@ void PQCompare<T>::Run(string stringAlg, int* pData, int N)
 	}
 	if (stringAlg == "BinaryHeapPQ")
 	{
-		BinaryHeapPQ<int> PQ(pData, N);
+		BinaryHeapMaxPQ<int> PQ(pData, N);
 		while (!PQ.IsEmpty())
 		{
 			PQ.DelMax();
@@ -82,7 +82,7 @@ void PQCompare<T>::ShowElem(string stringAlg, int* pData, int N)
 	}
 	if (stringAlg == "BinaryHeapPQ")
 	{
-		BinaryHeapPQ<int> PQ(pData, N);
+		BinaryHeapMaxPQ<int> PQ(pData, N);
 		while (!PQ.IsEmpty())
 		{
 			cout << PQ.DelMax() << " ";

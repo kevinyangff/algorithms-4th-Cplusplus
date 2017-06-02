@@ -2,13 +2,13 @@
 #include "InsertionSort.h"
 #include <assert.h>
 template<typename T>
-class BinaryHeapPQ
+class BinaryHeapMaxPQ
 {
 public:
-	BinaryHeapPQ();
-	BinaryHeapPQ(int N);
-	BinaryHeapPQ(T* pData, int nSize);
-	~BinaryHeapPQ();
+	BinaryHeapMaxPQ();
+	BinaryHeapMaxPQ(int N);
+	BinaryHeapMaxPQ(T* pData, int nSize);
+	~BinaryHeapMaxPQ();
 	void Insert(T data);
 	T Max();
 	T DelMax();
@@ -25,7 +25,7 @@ private:
 };
 
 template<typename T>
-BinaryHeapPQ<T>::BinaryHeapPQ()
+BinaryHeapMaxPQ<T>::BinaryHeapMaxPQ()
 {
 	m_nSize = 3;
 	m_nValidLength = 0;
@@ -33,7 +33,7 @@ BinaryHeapPQ<T>::BinaryHeapPQ()
 }
 
 template<typename T>
-BinaryHeapPQ<T>::BinaryHeapPQ(int N)
+BinaryHeapMaxPQ<T>::BinaryHeapMaxPQ(int N)
 {
 	m_nSize = N+1;
 	m_nValidLength = 0;
@@ -41,7 +41,7 @@ BinaryHeapPQ<T>::BinaryHeapPQ(int N)
 }
 
 template<typename T>
-BinaryHeapPQ<T>::BinaryHeapPQ(T* pData, int nSize)
+BinaryHeapMaxPQ<T>::BinaryHeapMaxPQ(T* pData, int nSize)
 {
 	m_nSize = nSize+1;
 	m_nValidLength = 0;
@@ -53,13 +53,13 @@ BinaryHeapPQ<T>::BinaryHeapPQ(T* pData, int nSize)
 }
 
 template<typename T>
-BinaryHeapPQ<T>::~BinaryHeapPQ()
+BinaryHeapMaxPQ<T>::~BinaryHeapMaxPQ()
 {
 	delete m_pData;
 }
 
 template<typename T>
-void BinaryHeapPQ<T>::Insert(T data)
+void BinaryHeapMaxPQ<T>::Insert(T data)
 {
 	m_pData[++m_nValidLength] = data;
 	Swim();
@@ -76,14 +76,14 @@ void BinaryHeapPQ<T>::Insert(T data)
 }
 
 template<typename T>
-T BinaryHeapPQ<T>::Max()
+T BinaryHeapMaxPQ<T>::Max()
 {
 	assert(m_nValidLength > 0);
 	return m_pData[1];
 }
 
 template<typename T>
-T BinaryHeapPQ<T>::DelMax()
+T BinaryHeapMaxPQ<T>::DelMax()
 {
 	assert(m_nValidLength > 0);
 	T temp = m_pData[1];
@@ -103,7 +103,7 @@ T BinaryHeapPQ<T>::DelMax()
 }
 
 template <typename T>
-void BinaryHeapPQ<T>::Exch(T* pData, int i, int j)
+void BinaryHeapMaxPQ<T>::Exch(T* pData, int i, int j)
 {
 	T temp = pData[i];
 	pData[i] = pData[j];
@@ -112,19 +112,19 @@ void BinaryHeapPQ<T>::Exch(T* pData, int i, int j)
 
 
 template<typename T>
-int BinaryHeapPQ<T>::Size()
+int BinaryHeapMaxPQ<T>::Size()
 {
 	return m_nValidLength;
 }
 
 template<typename T>
-bool BinaryHeapPQ<T>::IsEmpty()
+bool BinaryHeapMaxPQ<T>::IsEmpty()
 {
 	return !m_nValidLength;
 }
 
 template<typename T>
-void BinaryHeapPQ<T>::Sink()
+void BinaryHeapMaxPQ<T>::Sink()
 {
 	for (int i = 1; i <= m_nValidLength/2;)
 	{
@@ -163,7 +163,7 @@ void BinaryHeapPQ<T>::Sink()
 }
 
 template<typename T>
-void BinaryHeapPQ<T>::Swim()
+void BinaryHeapMaxPQ<T>::Swim()
 {
 	for (int i = m_nValidLength; i/2 >= 1; i/=2)
 	{

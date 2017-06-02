@@ -118,7 +118,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bag.h" />
-    <ClInclude Include="BinaryHeapPQ.h" />
+    <ClInclude Include="BinaryHeapIndexMinPQ.h" />
+    <ClInclude Include="BinaryHeapMaxPQ.h" />
+    <ClInclude Include="BinaryHeapMinPQ.h" />
     <ClInclude Include="BinaryHeapSort.h" />
     <ClInclude Include="BinarySearchST.h" />
     <ClInclude Include="BreadthFirshCC.h" />
