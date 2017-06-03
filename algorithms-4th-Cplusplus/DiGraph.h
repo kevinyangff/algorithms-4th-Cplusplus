@@ -9,12 +9,12 @@ class DiGraph
 public:
 	DiGraph(int V);
 	DiGraph(istream& ist);
-	DiGraph(DiGraph& DG);
+	DiGraph(const DiGraph& DG);
 	~DiGraph();
-	int V();
-	int E();
+	int V() const;
+	int E() const;
 	void AddEdge(int v, int w);
-	Bag<int> Adj(int v);
+	Bag<int> Adj(int v) const;
 	DiGraph reverse();
 	void Show();
 private:
@@ -45,7 +45,7 @@ DiGraph::DiGraph(istream& ist) :m_pBag(0), m_nV(0), m_nE(0)
 	}
 }
 
-DiGraph::DiGraph(DiGraph& DG)
+DiGraph::DiGraph(const DiGraph& DG)
 {
 	this->m_nV = DG.V();
 	this->m_nE = DG.E();
@@ -68,12 +68,12 @@ DiGraph::~DiGraph()
 	}
 }
 
-int DiGraph::V()
+int DiGraph::V() const
 {
 	return m_nV;
 }
 
-int DiGraph::E()
+int DiGraph::E() const
 {
 	return m_nE;
 }
@@ -85,7 +85,7 @@ void DiGraph::AddEdge(int v, int w)
 	m_nE++;
 }
 
-Bag<int> DiGraph::Adj(int v)
+Bag<int> DiGraph::Adj(int v) const
 {
 	assert(v < m_nV);
 	return m_pBag[v];

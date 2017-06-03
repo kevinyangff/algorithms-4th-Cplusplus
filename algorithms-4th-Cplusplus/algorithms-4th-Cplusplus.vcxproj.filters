@@ -160,6 +160,24 @@
     <ClInclude Include="BinaryHeapIndexMinPQ.h">
       <Filter>DataStructs</Filter>
     </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="EdgeWeightedGraph.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="MST.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="LazyPrimMST.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimMST.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="KruskalMST.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DataStructs">

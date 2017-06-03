@@ -29,6 +29,10 @@
 #include "DirectedDFOrder.h"
 #include "DirectedDFTopologic.h"
 #include "DirectedDFSCC.h"
+#include "EdgeWeightedGraph.h"
+#include "LazyPrimMST.h"
+#include "PrimMST.h"
+#include "KruskalMST.h"
 using namespace std;
 
 void ShowTime()
@@ -106,7 +110,7 @@ int main()
 //	SortCompare::CompareTwoSortAlgorithms("MergeSort", "BinaryHeapSort", 1000, 100);
 
 	//test PQ
-	PQCompare<int>::CompareTwoPQ("BinaryHeapMinPQ", "BinaryHeapIndexMinPQ", 10, 1);
+//	PQCompare<int>::CompareTwoPQ("BinaryHeapMinPQ", "BinaryHeapIndexMinPQ", 10, 1);
 
 	//test ST
 //	STCompare::Compare("BST", "RedBlackST", 10000000, 1);
@@ -225,5 +229,36 @@ int main()
 // 	cout << endl;
 // 	DirectedDFSCC DDFSCC(G);
 // 	cout << "SCC count is " << DDFSCC.Count() << endl;
+
+	ifstream ifs("../data/tinyEWG.txt");
+	EdgeWeightedGraph G(ifs);
+	ifs.close();
+	G.Show();
+	cout << "Lazy Prim MST:" << endl;
+	LazyPrimMST lazyPrim(G);
+	Queue<Edge> qLazyPrim = lazyPrim.Edges();
+	for (int i = 0; i < qLazyPrim.Size(); i++)
+	{
+		Edge e = qLazyPrim.Peek(i);
+		cout << e.Either() << " -- " << e.Other(e.Either())<<" : "<<e.Weight()<<endl;
+	}
+
+	cout << "Prim MST:" << endl;
+	PrimMST prim(G);
+	Queue<Edge> qPrim = prim.Edges();
+	for (int i = 0; i < qPrim.Size(); i++)
+	{
+		Edge e = qPrim.Peek(i);
+		cout << e.Either() << " -- " << e.Other(e.Either()) << " : " << e.Weight() << endl;
+	}
+
+	cout << "Kruskal MST:" << endl;
+	KruskalMST kruskal(G);
+	Queue<Edge> qKruskal = kruskal.Edges();
+	for (int i = 0; i < qKruskal.Size(); i++)
+	{
+		Edge e = qKruskal.Peek(i);
+		cout << e.Either() << " -- " << e.Other(e.Either()) << " : " << e.Weight() << endl;
+	}
 	return 0;
 }

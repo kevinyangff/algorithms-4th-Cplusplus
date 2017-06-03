@@ -55,7 +55,7 @@ BinaryHeapMaxPQ<T>::BinaryHeapMaxPQ(T* pData, int nSize)
 template<typename T>
 BinaryHeapMaxPQ<T>::~BinaryHeapMaxPQ()
 {
-	delete m_pData;
+	delete[] m_pData;
 }
 
 template<typename T>
@@ -70,7 +70,7 @@ void BinaryHeapMaxPQ<T>::Insert(T data)
 		{
 			pDataTemp[i] = m_pData[i];
 		}
-		delete m_pData;
+		delete[] m_pData;
 		m_pData = pDataTemp;
 	}
 }
@@ -96,7 +96,7 @@ T BinaryHeapMaxPQ<T>::DelMax()
 		{
 			pDataTemp[i] = m_pData[i];
 		}
-		delete m_pData;
+		delete[] m_pData;
 		m_pData = pDataTemp;
 	}
 	return temp;

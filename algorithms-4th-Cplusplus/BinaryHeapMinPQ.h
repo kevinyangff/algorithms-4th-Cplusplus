@@ -55,7 +55,7 @@ BinaryHeapMinPQ<T>::BinaryHeapMinPQ(T* pData, int nSize)
 template<typename T>
 BinaryHeapMinPQ<T>::~BinaryHeapMinPQ()
 {
-	delete m_pData;
+	delete [] m_pData;
 }
 
 template<typename T>
@@ -65,12 +65,13 @@ void BinaryHeapMinPQ<T>::Insert(T data)
 	Swim();
 	if (m_nValidLength == m_nSize - 1)
 	{
+		m_nSize *= 2;
 		T* pDataTemp = new T[m_nSize * 2];
 		for (int i = 1; i <= m_nValidLength; i++)
 		{
 			pDataTemp[i] = m_pData[i];
 		}
-		delete m_pData;
+		delete [] m_pData;
 		m_pData = pDataTemp;
 	}
 }
@@ -91,12 +92,13 @@ T BinaryHeapMinPQ<T>::DelMin()
 	Sink();
 	if (m_nValidLength <= m_nSize / 4)
 	{
-		T* pDataTemp = new T[m_nSize / 2];
+		m_nSize /=  2;
+		T* pDataTemp = new T[m_nSize];
 		for (int i = 1; i <= m_nValidLength; i++)
 		{
 			pDataTemp[i] = m_pData[i];
 		}
-		delete m_pData;
+		delete [] m_pData;
 		m_pData = pDataTemp;
 	}
 	return temp;

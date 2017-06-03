@@ -39,7 +39,7 @@ Graph::Graph(istream& ist) :m_pBag(0), m_nV(0), m_nE(0)
 		ist >> v;
 		ist >> w;
 		this->AddEdge(v, w);
-		m_nE--;
+		m_nE;
 	}
 }
 

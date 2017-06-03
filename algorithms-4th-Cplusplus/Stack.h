@@ -5,13 +5,13 @@ class Stack
 {
 public:
 	Stack();
-	Stack(Stack& s);
+	Stack(const Stack& s);
 	virtual ~Stack();
 	void Push(ITEM);
 	ITEM Pop();
-	const ITEM& Peek(int nDeep);
+	const ITEM& Peek(int nDeep) const;
 	bool IsEmpty();
-	int Size();
+	int Size() const;
 public:
 	template <typename N>
 	struct Node
@@ -31,12 +31,16 @@ Stack<ITEM>::Stack() :m_top(0), m_nSize(0)
 }
 
 template<typename ITEM>
-Stack<ITEM>::Stack(Stack& s) : m_top(0), m_nSize(0)
+Stack<ITEM>::Stack(const Stack& s) : m_top(0), m_nSize(0)
 {
 	Stack<int> sTemp;
-	while (!s.IsEmpty())
+// 	while (!s.IsEmpty())
+// 	{
+// 		sTemp.Push(s.Pop());
+// 	}
+	for (int i = 0; i < s.Size(); i++)
 	{
-		sTemp.Push(s.Pop());
+		sTemp.Push(s.Peek(i));
 	}
 	while (!sTemp.IsEmpty())
 	{
@@ -78,7 +82,7 @@ ITEM Stack<ITEM>::Pop()
 }
 
 template<typename ITEM>
-const ITEM& Stack<ITEM>::Peek(int nDeep)
+const ITEM& Stack<ITEM>::Peek(int nDeep) const
 {
 	assert(m_nSize > nDeep);
 	Node<ITEM>* pTemp = m_top;
@@ -96,7 +100,7 @@ bool Stack<ITEM>::IsEmpty()
 }
 
 template<typename ITEM>
-int Stack<ITEM>::Size()
+int Stack<ITEM>::Size() const
 {
 	return m_nSize;
 }

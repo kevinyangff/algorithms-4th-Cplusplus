@@ -4,9 +4,9 @@ class Bag
 {
 public:
 	Bag();
-	Bag(Bag<ITEM>& b);
+	Bag(const Bag<ITEM>& b);
 	~Bag();
-	int Size();
+	int Size() const;
 	bool IsEmpty();
 	void Add(ITEM);
 	const ITEM& Peek(int nDeep) const;
@@ -27,7 +27,7 @@ Bag<ITEM>::Bag():m_nSize(0), m_pFirst(0)
 {}
 
 template<typename ITEM>
-Bag<ITEM>::Bag(Bag<ITEM>& b): m_nSize(0), m_pFirst(0)
+Bag<ITEM>::Bag(const Bag<ITEM>& b): m_nSize(0), m_pFirst(0)
 {
 	for (int i = 0; i < b.Size(); i++)
 	{
@@ -47,7 +47,7 @@ Bag<ITEM>::~Bag()
 }
 
 template <typename ITEM>
-int Bag<ITEM>::Size()
+int Bag<ITEM>::Size() const
 {
 	return m_nSize;
 }

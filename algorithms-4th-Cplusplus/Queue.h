@@ -5,10 +5,10 @@ template <typename ITEM>
 class Queue {
 public:
 	Queue();
-	Queue(Queue<ITEM>& q);
+	Queue(const Queue<ITEM>& q);
 	~Queue();
 	bool IsEmpty();
-	int Size();
+	int Size() const;
 	void Enqueue(ITEM item);
 	ITEM Dequeue();
 	const ITEM& Peek(int nDeep) const;
@@ -32,12 +32,12 @@ Queue<ITEM>::Queue() :m_nSize(0), m_head(0), m_tail(0)
 }
 
 template <typename ITEM>
-Queue<ITEM>::Queue(Queue<ITEM>& q) :m_nSize(0), m_head(0), m_tail(0)
+Queue<ITEM>::Queue(const Queue<ITEM>& q) :m_nSize(0), m_head(0), m_tail(0)
 {
 	int nSize = q.Size();
 	for (int i = 0; i < nSize; i++)
 	{
-		this->Enqueue(q.Dequeue());
+		this->Enqueue(q.Peek(i));
 	}
 }
 
@@ -59,7 +59,7 @@ bool Queue<ITEM>::IsEmpty()
 }
 
 template <typename ITEM>
-int Queue<ITEM>::Size()
+int Queue<ITEM>::Size() const
 {
 	return m_nSize;
 }
