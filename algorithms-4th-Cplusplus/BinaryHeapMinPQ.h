@@ -66,7 +66,7 @@ void BinaryHeapMinPQ<T>::Insert(T data)
 	if (m_nValidLength == m_nSize - 1)
 	{
 		m_nSize *= 2;
-		T* pDataTemp = new T[m_nSize * 2];
+		T* pDataTemp = new T[m_nSize];
 		for (int i = 1; i <= m_nValidLength; i++)
 		{
 			pDataTemp[i] = m_pData[i];

@@ -65,7 +65,8 @@ void BinaryHeapMaxPQ<T>::Insert(T data)
 	Swim();
 	if (m_nValidLength == m_nSize-1)
 	{
-		T* pDataTemp = new T[m_nSize * 2];
+		m_nSize *= 2;
+		T* pDataTemp = new T[m_nSize];
 		for (int i = 1; i <= m_nValidLength; i++)
 		{
 			pDataTemp[i] = m_pData[i];
@@ -91,7 +92,8 @@ T BinaryHeapMaxPQ<T>::DelMax()
 	Sink();
 	if (m_nValidLength <= m_nSize / 4)
 	{
-		T* pDataTemp = new T[m_nSize / 2];
+		m_nSize /= 2;
+		T* pDataTemp = new T[m_nSize];
 		for (int i = 1; i <= m_nValidLength; i++)
 		{
 			pDataTemp[i] = m_pData[i];
