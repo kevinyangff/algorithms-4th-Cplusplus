@@ -33,7 +33,7 @@ Stack<ITEM>::Stack() :m_top(0), m_nSize(0)
 template<typename ITEM>
 Stack<ITEM>::Stack(const Stack& s) : m_top(0), m_nSize(0)
 {
-	Stack<int> sTemp;
+	Stack<ITEM> sTemp;
 // 	while (!s.IsEmpty())
 // 	{
 // 		sTemp.Push(s.Pop());

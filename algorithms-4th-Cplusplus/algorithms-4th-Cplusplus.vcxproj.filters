@@ -178,6 +178,33 @@
     <ClInclude Include="KruskalMST.h">
       <Filter>Algorithms\Graph</Filter>
     </ClInclude>
+    <ClInclude Include="DirectedEdge.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="EdgeWeightedDiGraph.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="SP.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="EdgeWeightedDirectedDFCycle.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="EdgeWeightedDirectedDFOrder.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="EdgeWeightedDirectedTopologic.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="TopologicSP.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="BellmanFordSP.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="DijkstraSP.h">
+      <Filter>Algorithms\Graph</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DataStructs">

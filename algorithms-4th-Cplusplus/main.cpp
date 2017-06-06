@@ -33,6 +33,9 @@
 #include "LazyPrimMST.h"
 #include "PrimMST.h"
 #include "KruskalMST.h"
+#include "DijkstraSP.h"
+#include "TopologicSP.h"
+#include "BellmanFordSP.h"
 using namespace std;
 
 void ShowTime()
@@ -230,35 +233,87 @@ int main()
 // 	DirectedDFSCC DDFSCC(G);
 // 	cout << "SCC count is " << DDFSCC.Count() << endl;
 
-	ifstream ifs("../data/tinyEWG.txt");
-	EdgeWeightedGraph G(ifs);
+// 	ifstream ifs("../data/tinyEWG.txt");
+// 	EdgeWeightedGraph G(ifs);
+// 	ifs.close();
+// 	G.Show();
+// 	cout << "Lazy Prim MST:" << endl;
+// 	LazyPrimMST lazyPrim(G);
+// 	Queue<Edge> qLazyPrim = lazyPrim.Edges();
+// 	for (int i = 0; i < qLazyPrim.Size(); i++)
+// 	{
+// 		Edge e = qLazyPrim.Peek(i);
+// 		cout << e.Either() << " -- " << e.Other(e.Either())<<" : "<<e.Weight()<<endl;
+// 	}
+// 
+// 	cout << "Prim MST:" << endl;
+// 	PrimMST prim(G);
+// 	Queue<Edge> qPrim = prim.Edges();
+// 	for (int i = 0; i < qPrim.Size(); i++)
+// 	{
+// 		Edge e = qPrim.Peek(i);
+// 		cout << e.Either() << " -- " << e.Other(e.Either()) << " : " << e.Weight() << endl;
+// 	}
+// 
+// 	cout << "Kruskal MST:" << endl;
+// 	KruskalMST kruskal(G);
+// 	Queue<Edge> qKruskal = kruskal.Edges();
+// 	for (int i = 0; i < qKruskal.Size(); i++)
+// 	{
+// 		Edge e = qKruskal.Peek(i);
+// 		cout << e.Either() << " -- " << e.Other(e.Either()) << " : " << e.Weight() << endl;
+// 	}
+	ifstream ifs("../data/tinyEWDnc.txt");
+	EdgeWeightedDiGraph EWD(ifs);
 	ifs.close();
-	G.Show();
-	cout << "Lazy Prim MST:" << endl;
-	LazyPrimMST lazyPrim(G);
-	Queue<Edge> qLazyPrim = lazyPrim.Edges();
-	for (int i = 0; i < qLazyPrim.Size(); i++)
+	EWD.Show();
+	cout << "DijkstraSP:" << endl;
+	DijkstraSP spDijkstra(EWD, 0);
+	cout << "Has negative weight edges: " << spDijkstra.HasNegativeWeightEdge() << endl;
+	cout << "Has path to X: " << spDijkstra.HasPathTo(6) << endl;
+	if(!spDijkstra.HasNegativeWeightEdge() && spDijkstra.HasPathTo(6))
 	{
-		Edge e = qLazyPrim.Peek(i);
-		cout << e.Either() << " -- " << e.Other(e.Either())<<" : "<<e.Weight()<<endl;
+		Stack<DirectedEdge> s1 = spDijkstra.PathTo(6);
+		while (!s1.IsEmpty())
+		{
+			s1.Pop().Show();
+		}
 	}
-
-	cout << "Prim MST:" << endl;
-	PrimMST prim(G);
-	Queue<Edge> qPrim = prim.Edges();
-	for (int i = 0; i < qPrim.Size(); i++)
+	cout << "TopologicSP:" << endl;
+	TopologicSP spTopoLogic(EWD, 0);
+	cout << "Has cycle: " << spTopoLogic.HasCycle() << endl;
+	cout << "Has path to X: " << spTopoLogic.HasPathTo(3) << endl;
+	if (!spTopoLogic.HasCycle() && spTopoLogic.HasPathTo(3))
 	{
-		Edge e = qPrim.Peek(i);
-		cout << e.Either() << " -- " << e.Other(e.Either()) << " : " << e.Weight() << endl;
+		Stack<DirectedEdge> s = spTopoLogic.PathTo(3);
+		while (!s.IsEmpty())
+		{
+			s.Pop().Show();
+		}
 	}
-
-	cout << "Kruskal MST:" << endl;
-	KruskalMST kruskal(G);
-	Queue<Edge> qKruskal = kruskal.Edges();
-	for (int i = 0; i < qKruskal.Size(); i++)
+	cout << "BellmanFordSP:" << endl;
+	BellmanFordSP spBellmanFord(EWD, 0);
+	cout << "Has negative weight cycle:" << spBellmanFord.HasNegativeWeightCycle() << endl;
+	cout << "Has path to X: " << spBellmanFord.HasPathTo(4) << endl;
+	if (!spBellmanFord.HasNegativeWeightCycle())
 	{
-		Edge e = qKruskal.Peek(i);
-		cout << e.Either() << " -- " << e.Other(e.Either()) << " : " << e.Weight() << endl;
+		if (spBellmanFord.HasPathTo(4))
+		{
+			Stack<DirectedEdge> s = spBellmanFord.PathTo(4);
+			while (!s.IsEmpty())
+			{
+				s.Pop().Show();
+			}
+		}
+	}
+	else
+	{
+		Bag<DirectedEdge> b = spBellmanFord.NegativeWeightCycle(EWD);
+		cout << "Negative weight cycle:" << endl;
+		for (int i = 0; i < b.Size(); i++)
+		{
+			b.Peek(i).Show();
+		}
 	}
 	return 0;
 }

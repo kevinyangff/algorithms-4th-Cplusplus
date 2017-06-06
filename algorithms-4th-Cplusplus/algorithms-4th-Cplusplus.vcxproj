@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bag.h" />
+    <ClInclude Include="BellmanFordSP.h" />
     <ClInclude Include="BinaryHeapIndexMinPQ.h" />
     <ClInclude Include="BinaryHeapMaxPQ.h" />
     <ClInclude Include="BinaryHeapMinPQ.h" />
@@ -144,8 +145,14 @@
     <ClInclude Include="DirectedDFSCC.h" />
     <ClInclude Include="DirectedDFSearch.h" />
     <ClInclude Include="DirectedDFTopologic.h" />
+    <ClInclude Include="DirectedEdge.h" />
+    <ClInclude Include="DijkstraSP.h" />
     <ClInclude Include="DoubleLinkNode.h" />
     <ClInclude Include="Edge.h" />
+    <ClInclude Include="EdgeWeightedDiGraph.h" />
+    <ClInclude Include="EdgeWeightedDirectedDFCycle.h" />
+    <ClInclude Include="EdgeWeightedDirectedDFOrder.h" />
+    <ClInclude Include="EdgeWeightedDirectedTopologic.h" />
     <ClInclude Include="EdgeWeightedGraph.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="HillSort.h" />
@@ -170,8 +177,10 @@
     <ClInclude Include="SequentialSearchST.h" />
     <ClInclude Include="SingleLinkNode.h" />
     <ClInclude Include="SortCompare.h" />
+    <ClInclude Include="SP.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="STCompare.h" />
+    <ClInclude Include="TopologicSP.h" />
     <ClInclude Include="TwoColor.h" />
     <ClInclude Include="UnorderElementaryMaxPQ.h" />
     <ClInclude Include="WeightQuickUnion.h" />
