@@ -205,6 +205,18 @@
     <ClInclude Include="DijkstraSP.h">
       <Filter>Algorithms\Graph</Filter>
     </ClInclude>
+    <ClInclude Include="Alphabet.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="LSD.h">
+      <Filter>Algorithms\String</Filter>
+    </ClInclude>
+    <ClInclude Include="MSD.h">
+      <Filter>Algorithms\String</Filter>
+    </ClInclude>
+    <ClInclude Include="Quick3String.h">
+      <Filter>Algorithms\String</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DataStructs">
@@ -218,6 +230,9 @@
     </Filter>
     <Filter Include="Algorithms\Graph">
       <UniqueIdentifier>{7a7bf881-15ee-46e8-9005-cb083d278a43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithms\String">
+      <UniqueIdentifier>{fd71814c-250e-4bc4-bbd6-e9493942365a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

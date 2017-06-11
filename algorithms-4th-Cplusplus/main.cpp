@@ -36,6 +36,9 @@
 #include "DijkstraSP.h"
 #include "TopologicSP.h"
 #include "BellmanFordSP.h"
+#include "LSD.h"
+#include "MSD.h"
+#include "Quick3String.h"
 using namespace std;
 
 void ShowTime()
@@ -263,57 +266,87 @@ int main()
 // 		Edge e = qKruskal.Peek(i);
 // 		cout << e.Either() << " -- " << e.Other(e.Either()) << " : " << e.Weight() << endl;
 // 	}
-	ifstream ifs("../data/tinyEWDnc.txt");
-	EdgeWeightedDiGraph EWD(ifs);
-	ifs.close();
-	EWD.Show();
-	cout << "DijkstraSP:" << endl;
-	DijkstraSP spDijkstra(EWD, 0);
-	cout << "Has negative weight edges: " << spDijkstra.HasNegativeWeightEdge() << endl;
-	cout << "Has path to X: " << spDijkstra.HasPathTo(6) << endl;
-	if(!spDijkstra.HasNegativeWeightEdge() && spDijkstra.HasPathTo(6))
+// 	ifstream ifs("../data/tinyEWDnc.txt");
+// 	EdgeWeightedDiGraph EWD(ifs);
+// 	ifs.close();
+// 	EWD.Show();
+// 	cout << "DijkstraSP:" << endl;
+// 	DijkstraSP spDijkstra(EWD, 0);
+// 	cout << "Has negative weight edges: " << spDijkstra.HasNegativeWeightEdge() << endl;
+// 	cout << "Has path to X: " << spDijkstra.HasPathTo(6) << endl;
+// 	if(!spDijkstra.HasNegativeWeightEdge() && spDijkstra.HasPathTo(6))
+// 	{
+// 		Stack<DirectedEdge> s1 = spDijkstra.PathTo(6);
+// 		while (!s1.IsEmpty())
+// 		{
+// 			s1.Pop().Show();
+// 		}
+// 	}
+// 	cout << "TopologicSP:" << endl;
+// 	TopologicSP spTopoLogic(EWD, 0);
+// 	cout << "Has cycle: " << spTopoLogic.HasCycle() << endl;
+// 	cout << "Has path to X: " << spTopoLogic.HasPathTo(3) << endl;
+// 	if (!spTopoLogic.HasCycle() && spTopoLogic.HasPathTo(3))
+// 	{
+// 		Stack<DirectedEdge> s = spTopoLogic.PathTo(3);
+// 		while (!s.IsEmpty())
+// 		{
+// 			s.Pop().Show();
+// 		}
+// 	}
+// 	cout << "BellmanFordSP:" << endl;
+// 	BellmanFordSP spBellmanFord(EWD, 0);
+// 	cout << "Has negative weight cycle:" << spBellmanFord.HasNegativeWeightCycle() << endl;
+// 	cout << "Has path to X: " << spBellmanFord.HasPathTo(4) << endl;
+// 	if (!spBellmanFord.HasNegativeWeightCycle())
+// 	{
+// 		if (spBellmanFord.HasPathTo(4))
+// 		{
+// 			Stack<DirectedEdge> s = spBellmanFord.PathTo(4);
+// 			while (!s.IsEmpty())
+// 			{
+// 				s.Pop().Show();
+// 			}
+// 		}
+// 	}
+// 	else
+// 	{
+// 		Bag<DirectedEdge> b = spBellmanFord.NegativeWeightCycle(EWD);
+// 		cout << "Negative weight cycle:" << endl;
+// 		for (int i = 0; i < b.Size(); i++)
+// 		{
+// 			b.Peek(i).Show();
+// 		}
+// 	}
+
+	//test String
+	string sArrayLSD[] = { "4PGC938", "2IYE230", "3CI0720", "1ICK750", "1OHV845", "4JZY524", "1ICK750", "3CI0720", 
+			"1OHV845", "1OHV845", "2RLA629", "2RLA629", "3ATW723"};
+	LSD::Sort(sArrayLSD, 13, 7);
+	cout << "LSD result" << endl;
+	for (int i = 0; i < 13; i++)
 	{
-		Stack<DirectedEdge> s1 = spDijkstra.PathTo(6);
-		while (!s1.IsEmpty())
-		{
-			s1.Pop().Show();
-		}
+		cout << sArrayLSD[i] << endl;
 	}
-	cout << "TopologicSP:" << endl;
-	TopologicSP spTopoLogic(EWD, 0);
-	cout << "Has cycle: " << spTopoLogic.HasCycle() << endl;
-	cout << "Has path to X: " << spTopoLogic.HasPathTo(3) << endl;
-	if (!spTopoLogic.HasCycle() && spTopoLogic.HasPathTo(3))
+	cout << endl;
+	string sArrayMSD[] = { "she", "sells", "seashells", "by", "the", "seashore", "the", "shells",
+		"she", "sells", "are", "surely", "seashells" };
+	MSD::Sort(sArrayMSD, 13);
+	cout << "MSD result" << endl;
+	for (int i = 0; i < 13; i++)
 	{
-		Stack<DirectedEdge> s = spTopoLogic.PathTo(3);
-		while (!s.IsEmpty())
-		{
-			s.Pop().Show();
-		}
+		cout << sArrayMSD[i] << endl;
 	}
-	cout << "BellmanFordSP:" << endl;
-	BellmanFordSP spBellmanFord(EWD, 0);
-	cout << "Has negative weight cycle:" << spBellmanFord.HasNegativeWeightCycle() << endl;
-	cout << "Has path to X: " << spBellmanFord.HasPathTo(4) << endl;
-	if (!spBellmanFord.HasNegativeWeightCycle())
+	cout << endl;
+
+	string sArrayQuick3String[] = { "she", "sells", "seashells", "by", "the", "seashore", "the", "shells",
+		"she", "sells", "are", "surely", "seashells" };
+	Quick3String::Sort(sArrayQuick3String, 13);
+	cout << "Quick3String result" << endl;
+	for (int i = 0; i < 13; i++)
 	{
-		if (spBellmanFord.HasPathTo(4))
-		{
-			Stack<DirectedEdge> s = spBellmanFord.PathTo(4);
-			while (!s.IsEmpty())
-			{
-				s.Pop().Show();
-			}
-		}
+		cout << sArrayQuick3String[i] << endl;
 	}
-	else
-	{
-		Bag<DirectedEdge> b = spBellmanFord.NegativeWeightCycle(EWD);
-		cout << "Negative weight cycle:" << endl;
-		for (int i = 0; i < b.Size(); i++)
-		{
-			b.Peek(i).Show();
-		}
-	}
+	cout << endl;
 	return 0;
 }

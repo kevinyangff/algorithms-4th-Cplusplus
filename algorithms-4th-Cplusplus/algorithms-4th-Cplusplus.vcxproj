@@ -117,6 +117,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Alphabet.h" />
     <ClInclude Include="Bag.h" />
     <ClInclude Include="BellmanFordSP.h" />
     <ClInclude Include="BinaryHeapIndexMinPQ.h" />
@@ -159,8 +160,10 @@
     <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="KruskalMST.h" />
     <ClInclude Include="LazyPrimMST.h" />
+    <ClInclude Include="LSD.h" />
     <ClInclude Include="MergeBUSort.h" />
     <ClInclude Include="MergeSort.h" />
+    <ClInclude Include="MSD.h" />
     <ClInclude Include="MST.h" />
     <ClInclude Include="OrderElementaryPQ.h" />
     <ClInclude Include="Paths.h" />
@@ -168,6 +171,7 @@
     <ClInclude Include="PrimMST.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Quick3Sort.h" />
+    <ClInclude Include="Quick3String.h" />
     <ClInclude Include="QuickFindUF.h" />
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="QuickUnion.h" />
