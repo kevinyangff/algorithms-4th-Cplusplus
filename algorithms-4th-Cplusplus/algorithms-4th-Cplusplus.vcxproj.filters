@@ -217,6 +217,12 @@
     <ClInclude Include="Quick3String.h">
       <Filter>Algorithms\String</Filter>
     </ClInclude>
+    <ClInclude Include="TrieST.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="TrieNode.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DataStructs">
