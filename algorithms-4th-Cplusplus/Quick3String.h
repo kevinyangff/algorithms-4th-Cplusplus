@@ -28,6 +28,10 @@ void Quick3String::Sort(string* pData, int lo, int hi, int d)
 	{
 		return;
 	}
+	if (hi - lo <= 15)
+	{
+		InsertionSort<string>::Sort2(pData + lo, hi - lo + 1);
+	}
 	int lt = lo;
 	int i = lo + 1;
 	int gt = hi;

@@ -21,6 +21,10 @@ void MSD::Sort(string* pData, int lo, int hi, int d)
 	{
 		return;
 	}
+	if (hi - lo <= 15)
+	{
+		InsertionSort<string>::Sort2(pData + lo, hi - lo + 1);
+	}
 	const int R = 256;
 	int* pCount = new int[R + 2];
 	string* pAux = new string[hi-lo+1];
