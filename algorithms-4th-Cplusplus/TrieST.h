@@ -20,10 +20,12 @@ public:
 	Queue<string> KeysWithPrefix(string s);
 	Queue<string> KeysThatMatch(string s);
 private:
-	TrieNode* Put(TrieNode* node, string key, T value, int d);
-	TrieNode* Get(TrieNode* node, string key, int d);
-	TrieNode* Delete(TrieNode* node, string key, int d);
-	void Collect(TrieNode* node, Queue<string>& q);
+	TrieNode<T>* Put(TrieNode<T>* node, string key, T value, int d);
+	TrieNode<T>* Get(TrieNode<T>* node, string key, int d);
+	TrieNode<T>* Delete(TrieNode<T>* node, string key, int d);
+	void Collect(TrieNode<T>* node, string sTarget, Queue<string>& q);
+	void KeysThatMatch(TrieNode<T>* node, string s, string sTarget, int d, Queue<string>& q);
+	void LongestPrefixOf(TrieNode<T>* node, string s, int d, int& n);
 private:
 	TrieNode<T>* m_root;
 	int m_R;
@@ -43,11 +45,11 @@ void TrieST<T>::Put(string key, T value)
 }
 
 template<typename T>
-TrieNode* TrieST<T>::Put(TrieNode* node, string key, T value, int d)
+TrieNode<T>* TrieST<T>::Put(TrieNode<T>* node, string key, T value, int d)
 {
 	if (node == 0)
 	{
-		node = new TrieNode(m_R);
+		node = new TrieNode<T>(m_R);
 	}
 	if (d == key.length())
 	{
@@ -64,15 +66,16 @@ TrieNode* TrieST<T>::Put(TrieNode* node, string key, T value, int d)
 		return node;
 	}
 	char c = key.at(d);
-	return Put(node->m_ppNode[c], key, value, d + 1);
+	node->m_ppNode[c] = Put(node->m_ppNode[c], key, value, d + 1);
+	return node;
 }
 
 template<typename T>
 T TrieST<T>::Get(string key)
 {
-	TrieNode* node = Get(m_root, key, 0);
+	TrieNode<T>* node = Get(m_root, key, 0);
 	if (node == 0) throw 0;
-	if (node.m_pValue != 0)
+	if (node->m_pValue != 0)
 	{
 		return *(node->m_pValue);
 	}
@@ -83,7 +86,7 @@ T TrieST<T>::Get(string key)
 }
 
 template<typename T>
-TrieNode* TrieST<T>::Get(TrieNode* node, string key, int d)
+TrieNode<T>* TrieST<T>::Get(TrieNode<T>* node, string key, int d)
 {
 	if (node == 0) return 0;
 	if (d == key.length())
@@ -101,7 +104,7 @@ void TrieST<T>::Delete(string key)
 }
 
 template<typename T>
-TrieNode* TrieST<T>::Delete(TrieNode* node, string key, int d)
+TrieNode<T>* TrieST<T>::Delete(TrieNode<T>* node, string key, int d)
 {
 	if (node == 0) return 0;
 	if (d == key.length())
@@ -116,7 +119,7 @@ TrieNode* TrieST<T>::Delete(TrieNode* node, string key, int d)
 	else
 	{
 		char c = key.at(d);
-		node = Delete(node->m_ppNode[c], key, d + 1);
+		node->m_ppNode[c] = Delete(node->m_ppNode[c], key, d + 1);
 	}
 	if (node->m_pValue != 0)
 	{
@@ -138,7 +141,7 @@ bool TrieST<T>::Contains(string key)
 {
 	try
 	{
-		this->Get(key)
+		this->Get(key);
 	}
 	catch (int)
 	{
@@ -162,28 +165,91 @@ int TrieST<T>::Size()
 template<typename T>
 Queue<string> TrieST<T>::Keys()
 {
-	Queue<string> q;
-	Collect(m_root, q);
-	return q;
+	return KeysWithPrefix(m_root, "", q);
 }
 
 template<typename T>
-string TrieST<T>::LongestPrefixOf(string s);
+string TrieST<T>::LongestPrefixOf(string s)
+{
+	int n = 0;
+	LongestPrefixOf(m_root, s, 0, n);
+	return s.substr(0, n);
+}
+
+template<typename T>
+void TrieST<T>::LongestPrefixOf(TrieNode<T>* node, string s, int d, int& n)
+{
+	if (node == 0) return;
+	if (node->m_pValue != 0)
+	{
+		n = d;
+	}
+	if (d != s.length())
+	{
+		char c = s.at(d);
+		LongestPrefixOf(node->m_ppNode[c], s, d + 1, n);
+	}
+	return;
+}
 
 template<typename T>
 Queue<string> TrieST<T>::KeysWithPrefix(string s)
 {
 	Queue<string> q;
-	TrieNode* node = Get(m_root, s, 0);
-	if (node != 0 && node->m_pValue != 0)
-	{
-		Collect(node, q);
-	}
+	TrieNode<T>* node = Get(m_root, s, 0);
+	Collect(node, s, q);
 	return q;
 }
 
 template<typename T>
-Queue<string> TrieST<T>::KeysThatMatch(string s);
+Queue<string> TrieST<T>::KeysThatMatch(string s)
+{
+	Queue<string> q;
+	KeysThatMatch(m_root, s, "", 0, q);
+	return q;
+}
 
 template<typename T>
-void TrieST<T>::Collect(TrieNode* node, Queue<string>& q);
+void TrieST<T>::KeysThatMatch(TrieNode<T>* node, string s, string sTarget, int d, Queue<string>& q)
+{
+	if (node == 0)	return;
+	if (d == s.length())
+	{
+		if (node->m_pValue != 0)
+		{
+			q.Enqueue(sTarget);
+		}
+		return;
+	}
+	char c = s.at(d);
+	if(c == '.')
+	{
+		for (int i = 0; i < m_R; i++)
+		{
+			KeysThatMatch(node->m_ppNode[i], s, sTarget + (char)i, d + 1, q);
+		}
+	}
+	else
+	{
+		KeysThatMatch(node->m_ppNode[c], s, sTarget + c, d + 1, q);
+	}
+	return;
+}
+
+template<typename T>
+void TrieST<T>::Collect(TrieNode<T>* node, string sTarget, Queue<string>& q)
+{
+	if (node == 0)
+	{
+		return;
+	}
+	if (node->m_pValue != 0)
+	{
+		q.Enqueue(sTarget);
+	}
+	for (int i = 0; i < m_R; i++)
+	{
+		Collect(node->m_ppNode[i], sTarget +(char)i, q);
+	}
+	return;
+}

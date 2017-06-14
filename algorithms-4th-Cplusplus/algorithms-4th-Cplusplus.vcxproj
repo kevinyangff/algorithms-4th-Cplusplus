@@ -184,9 +184,11 @@
     <ClInclude Include="SP.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="STCompare.h" />
+    <ClInclude Include="TNode.h" />
     <ClInclude Include="TopologicSP.h" />
     <ClInclude Include="TrieNode.h" />
     <ClInclude Include="TrieST.h" />
+    <ClInclude Include="TST.h" />
     <ClInclude Include="TwoColor.h" />
     <ClInclude Include="UnorderElementaryMaxPQ.h" />
     <ClInclude Include="WeightQuickUnion.h" />

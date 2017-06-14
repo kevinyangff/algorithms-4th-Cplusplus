@@ -39,6 +39,8 @@
 #include "LSD.h"
 #include "MSD.h"
 #include "Quick3String.h"
+#include "TrieST.h"
+#include "TST.h"
 using namespace std;
 
 void ShowTime()
@@ -320,33 +322,129 @@ int main()
 // 	}
 
 	//test String
-	string sArrayLSD[] = { "4PGC938", "2IYE230", "3CI0720", "1ICK750", "1OHV845", "4JZY524", "1ICK750", "3CI0720", 
-			"1OHV845", "1OHV845", "2RLA629", "2RLA629", "3ATW723"};
-	LSD::Sort(sArrayLSD, 13, 7);
-	cout << "LSD result" << endl;
-	for (int i = 0; i < 13; i++)
-	{
-		cout << sArrayLSD[i] << endl;
-	}
-	cout << endl;
-	string sArrayMSD[] = { "she", "sells", "seashells", "by", "the", "seashore", "the", "shells",
-		"she", "sells", "are", "surely", "seashells" };
-	MSD::Sort(sArrayMSD, 13);
-	cout << "MSD result" << endl;
-	for (int i = 0; i < 13; i++)
-	{
-		cout << sArrayMSD[i] << endl;
-	}
-	cout << endl;
+// 	string sArrayLSD[] = { "4PGC938", "2IYE230", "3CI0720", "1ICK750", "1OHV845", "4JZY524", "1ICK750", "3CI0720", 
+// 			"1OHV845", "1OHV845", "2RLA629", "2RLA629", "3ATW723"};
+// 	LSD::Sort(sArrayLSD, 13, 7);
+// 	cout << "LSD result" << endl;
+// 	for (int i = 0; i < 13; i++)
+// 	{
+// 		cout << sArrayLSD[i] << endl;
+// 	}
+// 	cout << endl;
+// 	string sArrayMSD[] = { "she", "sells", "seashells", "by", "the", "seashore", "the", "shells",
+// 		"she", "sells", "are", "surely", "seashells" };
+// 	MSD::Sort(sArrayMSD, 13);
+// 	cout << "MSD result" << endl;
+// 	for (int i = 0; i < 13; i++)
+// 	{
+// 		cout << sArrayMSD[i] << endl;
+// 	}
+// 	cout << endl;
 
 	string sArrayQuick3String[] = { "she", "sells", "seashells", "by", "the", "seashore", "the", "shells",
 		"she", "sells", "are", "surely", "seashells" };
-	Quick3String::Sort(sArrayQuick3String, 13);
-	cout << "Quick3String result" << endl;
-	for (int i = 0; i < 13; i++)
+// 	Quick3String::Sort(sArrayQuick3String, 13);
+// 	cout << "Quick3String result" << endl;
+// 	for (int i = 0; i < 13; i++)
+// 	{
+// 		cout << sArrayQuick3String[i] << endl;
+// 	}
+// 	cout << endl;
+	TrieST<int> trie(128);
+// 	trie.Put("she", 0);
+// 	trie.Put("sells", 1);
+// 	trie.Put("seashells", 2);
+// 	trie.Put("by", 3);
+// 	trie.Put("the", 4);
+// 	trie.Put("seashore", 5);
+// 	trie.Put("the", 6);
+// 	trie.Put("she", 7);
+// 	trie.Put("are", 8);
+// 	trie.Put("surely", 9);
+// 	trie.Put("seashells", 10);
+// 	trie.Put("sells", 11);
+// 	trie.Put("shells", 12);
+// 	trie.Put("sae", 13);
+// 	trie.Put("thea", 14);
+// 	if (trie.Contains("sells"))
+// 	{
+// 		cout << trie.Get("sells")<<endl;
+// 	}
+// 	if (!trie.Contains("seasho"))
+// 	{
+// 		cout << "no seasho" << endl;
+// 	}
+// 	if (!trie.Contains("seashooo"))
+// 	{
+// 		cout << "no seashooo" << endl;
+// 	}
+// 	trie.Delete("sells");
+// 	if (trie.Contains("sells"))
+// 	{
+// 		cout << trie.Get("sells") << endl;
+// 	}
+// 	cout << "KeysWithPrefix: " << endl;
+// 	Queue<string> q = trie.KeysWithPrefix("");
+// 	while (!q.IsEmpty())
+// 	{
+// 		cout << q.Dequeue() << endl;
+// 	}
+// 	cout << "KeyThatMatch: " << endl;
+// 	Queue<string> q1 = trie.KeysThatMatch("s.e");
+// 	while (!q1.IsEmpty())
+// 	{
+// 		cout << q1.Dequeue() << endl;
+// 	}
+// 	cout << "LongestPrefixOf: " << endl;
+// 	string s = trie.LongestPrefixOf("theab");
+// 	cout << s << endl;
+	TST<int> tst;
+	tst.Put("she", 0);
+	tst.Put("sells", 1);
+	tst.Put("seashells", 2);
+	tst.Put("by", 3);
+	tst.Put("the", 4);
+	tst.Put("seashore", 5);
+	tst.Put("the", 6);
+	tst.Put("she", 7);
+	tst.Put("are", 8);
+	tst.Put("surely", 9);
+	tst.Put("seashells", 10);
+	tst.Put("sells", 11);
+	tst.Put("shells", 12);
+	tst.Put("sae", 13);
+	tst.Put("thea", 14);
+	if (tst.Contains("sells"))
 	{
-		cout << sArrayQuick3String[i] << endl;
+		cout << tst.Get("sells") << endl;
 	}
-	cout << endl;
+	if (!tst.Contains("seasho"))
+	{
+		cout << "no seasho" << endl;
+	}
+	if (!tst.Contains("seashooo"))
+	{
+		cout << "no seashooo" << endl;
+	}
+	tst.Delete("sells");
+	if (tst.Contains("sells"))
+	{
+		cout << tst.Get("sells") << endl;
+	}
+	cout << "KeysWithPrefix: " << endl;
+	Queue<string> q = tst.KeysWithPrefix("");
+	while (!q.IsEmpty())
+	{
+		cout << q.Dequeue() << endl;
+	}
+	cout << "KeyThatMatch: " << endl;
+	Queue<string> q1 = tst.KeysThatMatch("s.e");
+	while (!q1.IsEmpty())
+	{
+		cout << q1.Dequeue() << endl;
+	}
+	cout << "LongestPrefixOf: " << endl;
+	string s = tst.LongestPrefixOf("theab");
+	cout << s << endl;
 	return 0;
 }

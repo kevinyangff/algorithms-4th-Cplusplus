@@ -223,6 +223,12 @@
     <ClInclude Include="TrieNode.h">
       <Filter>DataStructs</Filter>
     </ClInclude>
+    <ClInclude Include="TST.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="TNode.h">
+      <Filter>DataStructs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DataStructs">
