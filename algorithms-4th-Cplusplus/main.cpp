@@ -41,6 +41,9 @@
 #include "Quick3String.h"
 #include "TrieST.h"
 #include "TST.h"
+#include "KMP.h"
+#include "BoyerMoore.h"
+#include "RabinKarp.h"
 using namespace std;
 
 void ShowTime()
@@ -321,7 +324,7 @@ int main()
 // 		}
 // 	}
 
-	//test String
+	//test String Sort
 // 	string sArrayLSD[] = { "4PGC938", "2IYE230", "3CI0720", "1ICK750", "1OHV845", "4JZY524", "1ICK750", "3CI0720", 
 // 			"1OHV845", "1OHV845", "2RLA629", "2RLA629", "3ATW723"};
 // 	LSD::Sort(sArrayLSD, 13, 7);
@@ -350,7 +353,9 @@ int main()
 // 		cout << sArrayQuick3String[i] << endl;
 // 	}
 // 	cout << endl;
-	TrieST<int> trie(128);
+
+	//test string ST
+//	TrieST<int> trie(128);
 // 	trie.Put("she", 0);
 // 	trie.Put("sells", 1);
 // 	trie.Put("seashells", 2);
@@ -398,53 +403,61 @@ int main()
 // 	cout << "LongestPrefixOf: " << endl;
 // 	string s = trie.LongestPrefixOf("theab");
 // 	cout << s << endl;
-	TST<int> tst;
-	tst.Put("she", 0);
-	tst.Put("sells", 1);
-	tst.Put("seashells", 2);
-	tst.Put("by", 3);
-	tst.Put("the", 4);
-	tst.Put("seashore", 5);
-	tst.Put("the", 6);
-	tst.Put("she", 7);
-	tst.Put("are", 8);
-	tst.Put("surely", 9);
-	tst.Put("seashells", 10);
-	tst.Put("sells", 11);
-	tst.Put("shells", 12);
-	tst.Put("sae", 13);
-	tst.Put("thea", 14);
-	if (tst.Contains("sells"))
-	{
-		cout << tst.Get("sells") << endl;
-	}
-	if (!tst.Contains("seasho"))
-	{
-		cout << "no seasho" << endl;
-	}
-	if (!tst.Contains("seashooo"))
-	{
-		cout << "no seashooo" << endl;
-	}
-	tst.Delete("sells");
-	if (tst.Contains("sells"))
-	{
-		cout << tst.Get("sells") << endl;
-	}
-	cout << "KeysWithPrefix: " << endl;
-	Queue<string> q = tst.KeysWithPrefix("");
-	while (!q.IsEmpty())
-	{
-		cout << q.Dequeue() << endl;
-	}
-	cout << "KeyThatMatch: " << endl;
-	Queue<string> q1 = tst.KeysThatMatch("s.e");
-	while (!q1.IsEmpty())
-	{
-		cout << q1.Dequeue() << endl;
-	}
-	cout << "LongestPrefixOf: " << endl;
-	string s = tst.LongestPrefixOf("theab");
-	cout << s << endl;
+// 	TST<int> tst;
+// 	tst.Put("she", 0);
+// 	tst.Put("sells", 1);
+// 	tst.Put("seashells", 2);
+// 	tst.Put("by", 3);
+// 	tst.Put("the", 4);
+// 	tst.Put("seashore", 5);
+// 	tst.Put("the", 6);
+// 	tst.Put("she", 7);
+// 	tst.Put("are", 8);
+// 	tst.Put("surely", 9);
+// 	tst.Put("seashells", 10);
+// 	tst.Put("sells", 11);
+// 	tst.Put("shells", 12);
+// 	tst.Put("sae", 13);
+// 	tst.Put("thea", 14);
+// 	if (tst.Contains("sells"))
+// 	{
+// 		cout << tst.Get("sells") << endl;
+// 	}
+// 	if (!tst.Contains("seasho"))
+// 	{
+// 		cout << "no seasho" << endl;
+// 	}
+// 	if (!tst.Contains("seashooo"))
+// 	{
+// 		cout << "no seashooo" << endl;
+// 	}
+// 	tst.Delete("sells");
+// 	if (tst.Contains("sells"))
+// 	{
+// 		cout << tst.Get("sells") << endl;
+// 	}
+// 	cout << "KeysWithPrefix: " << endl;
+// 	Queue<string> q = tst.KeysWithPrefix("");
+// 	while (!q.IsEmpty())
+// 	{
+// 		cout << q.Dequeue() << endl;
+// 	}
+// 	cout << "KeyThatMatch: " << endl;
+// 	Queue<string> q1 = tst.KeysThatMatch("s.e");
+// 	while (!q1.IsEmpty())
+// 	{
+// 		cout << q1.Dequeue() << endl;
+// 	}
+// 	cout << "LongestPrefixOf: " << endl;
+// 	string s = tst.LongestPrefixOf("theab");
+// 	cout << s << endl;
+	
+	//test string search
+	KMP kmp(128, "123456");
+	int i = kmp.Search("12345543212345468742145612489761211234569874147852369871");
+	BoyerMoore boyer(128, "123456");
+	int j = boyer.Search("12345543212345468742145612489761211234569874147852369871");
+	RabinKarp rabin(128, "123456");
+	int k = rabin.Search("12345543212345468742145612489761211234569874147852369871");
 	return 0;
 }

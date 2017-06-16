@@ -165,7 +165,7 @@ int TrieST<T>::Size()
 template<typename T>
 Queue<string> TrieST<T>::Keys()
 {
-	return KeysWithPrefix(m_root, "", q);
+	return KeysWithPrefix("");
 }
 
 template<typename T>
