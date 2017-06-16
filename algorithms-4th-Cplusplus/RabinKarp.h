@@ -18,7 +18,7 @@ private:
 	string m_pat;
 };
 
-RabinKarp::RabinKarp(int R, string pat) :m_R(R), m_q(18446744073709551557), m_patHash(0), m_RM(1), m_pat(pat)
+RabinKarp::RabinKarp(int R, string pat) :m_R(R), m_q(18014398241046527), m_patHash(0), m_RM(1), m_pat(pat)
 {
 	int M = pat.size();
 	for (int i = 1; i < M; i++)
@@ -34,12 +34,12 @@ int RabinKarp::Search(string txt)
 	int N = txt.size();
 	if (N < M)	return N;
 	unsigned long long txtHash = Hash(txt, M);
-	if (txtHash == m_patHash)	return 0;
+	if (txtHash == m_patHash/*&& txt.substr(i-M+1, M)==m_pat*//*for Las Vegas version*/)	return 0;
 	for (int i = M; i < N; i++)
 	{
-		txtHash = (txtHash/* + m_q*/ - (txt.at(i - M)*m_RM) % m_q) % m_q;//because 18446744073709551557 is the biggest prime that is not overflowed, so,can't add a m_q
+		txtHash = (txtHash + m_q - (txt.at(i - M)*m_RM) % m_q) % m_q;
 		txtHash = ((txtHash*m_R)%m_q + txt.at(i)) % m_q;
-		if (txtHash == m_patHash)
+		if (txtHash == m_patHash /*&& txt.substr(i-M+1, M)==m_pat*//*for Las Vegas version*/)
 		{
 			return i - M + 1;
 		}
