@@ -5,6 +5,7 @@ class Bag
 public:
 	Bag();
 	Bag(const Bag<ITEM>& b);
+	Bag<ITEM> operator=(const Bag<ITEM>& b);
 	~Bag();
 	int Size() const;
 	bool IsEmpty();
@@ -33,6 +34,16 @@ Bag<ITEM>::Bag(const Bag<ITEM>& b): m_nSize(0), m_pFirst(0)
 	{
 		this->Add(b.Peek(i));
 	}
+}
+
+template <typename ITEM>
+Bag<ITEM> Bag<ITEM>::operator=(const Bag<ITEM>& b)
+{
+	for (int i = 0; i < b.Size(); i++)
+	{
+		this->Add(b.Peek(i));
+	}
+	return *this;
 }
 
 template <typename ITEM>

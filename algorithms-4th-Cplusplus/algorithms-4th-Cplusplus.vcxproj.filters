@@ -238,6 +238,9 @@
     <ClInclude Include="RabinKarp.h">
       <Filter>Algorithms\String</Filter>
     </ClInclude>
+    <ClInclude Include="NFA.h">
+      <Filter>Algorithms\String</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DataStructs">

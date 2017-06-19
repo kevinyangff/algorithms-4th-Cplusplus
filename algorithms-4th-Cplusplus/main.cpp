@@ -44,6 +44,7 @@
 #include "KMP.h"
 #include "BoyerMoore.h"
 #include "RabinKarp.h"
+#include "NFA.h"
 using namespace std;
 
 void ShowTime()
@@ -453,11 +454,15 @@ int main()
 // 	cout << s << endl;
 	
 	//test string search
-	KMP kmp(128, "123456");
-	int i = kmp.Search("12345543212345468742145612489761211234569874147852369871");
-	BoyerMoore boyer(128, "123456");
-	int j = boyer.Search("12345543212345468742145612489761211234569874147852369871");
-	RabinKarp rabin(128, "123456");
-	int k = rabin.Search("12345543212345468742145612489761211234569874147852369871");
+// 	KMP kmp(128, "123456");
+// 	int i = kmp.Search("12345543212345468742145612489761211234569874147852369871");
+// 	BoyerMoore boyer(128, "123456");
+// 	int j = boyer.Search("12345543212345468742145612489761211234569874147852369871");
+// 	RabinKarp rabin(128, "123456");
+// 	int k = rabin.Search("12345543212345468742145612489761211234569874147852369871");
+
+	//test NFA
+	NFA nfa("A");
+	cout << nfa.Recognizes("BAB");
 	return 0;
 }

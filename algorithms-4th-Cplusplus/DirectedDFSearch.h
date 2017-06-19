@@ -4,6 +4,7 @@ class DirectedDFSearch
 {
 public:
 	DirectedDFSearch(DiGraph& G, int s);
+	DirectedDFSearch(DiGraph& G, Bag<int> b);
 	~DirectedDFSearch();
 	bool Marked(int v);
 	int Count();
@@ -22,6 +23,28 @@ DirectedDFSearch::DirectedDFSearch(DiGraph& G, int s):m_pMarked(0), m_nCount(0)
 		m_pMarked[i] = false;
 	}
 	DFS(G, s);
+}
+DirectedDFSearch::DirectedDFSearch(DiGraph& G, Bag<int> b) :m_pMarked(0), m_nCount(0)
+{
+	m_pMarked = new bool[G.V()];
+	for (int i = 0; i < G.V(); i++)
+	{
+		m_pMarked[i] = false;
+	}
+	if (b.IsEmpty())
+	{
+		DFS(G, 0);
+	}
+	else
+	{
+		for (int i = 0; i < b.Size(); i++)
+		{
+			if (!m_pMarked[b.Peek(i)])
+			{
+				DFS(G, b.Peek(i));
+			}
+		}
+	}
 }
 DirectedDFSearch::~DirectedDFSearch()
 {

@@ -167,6 +167,7 @@
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="MSD.h" />
     <ClInclude Include="MST.h" />
+    <ClInclude Include="NFA.h" />
     <ClInclude Include="OrderElementaryPQ.h" />
     <ClInclude Include="Paths.h" />
     <ClInclude Include="PQCompare.h" />
