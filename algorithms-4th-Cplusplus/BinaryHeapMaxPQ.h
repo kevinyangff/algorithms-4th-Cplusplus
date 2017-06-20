@@ -90,17 +90,17 @@ T BinaryHeapMaxPQ<T>::DelMax()
 	T temp = m_pData[1];
 	Exch(m_pData, 1, m_nValidLength--);
 	Sink();
-	if (m_nValidLength <= m_nSize / 4)
-	{
-		m_nSize /= 2;
-		T* pDataTemp = new T[m_nSize];
-		for (int i = 1; i <= m_nValidLength; i++)
-		{
-			pDataTemp[i] = m_pData[i];
-		}
-		delete[] m_pData;
-		m_pData = pDataTemp;
-	}
+// 	if (m_nValidLength <= m_nSize / 4)
+// 	{
+// 		m_nSize /= 2;
+// 		T* pDataTemp = new T[m_nSize];
+// 		for (int i = 1; i <= m_nValidLength; i++)
+// 		{
+// 			pDataTemp[i] = m_pData[i];
+// 		}
+// 		delete[] m_pData;
+// 		m_pData = pDataTemp;
+// 	}
 	return temp;
 }
 

@@ -45,6 +45,7 @@
 #include "BoyerMoore.h"
 #include "RabinKarp.h"
 #include "NFA.h"
+#include "Huffman.h"
 using namespace std;
 
 void ShowTime()
@@ -462,7 +463,10 @@ int main()
 // 	int k = rabin.Search("12345543212345468742145612489761211234569874147852369871");
 
 	//test NFA
-	NFA nfa("A");
-	cout << nfa.Recognizes("BAB");
+// 	NFA nfa("A");
+// 	cout << nfa.Recognizes("BAB");
+
+	//test Huffman
+	cout<<Huffman::Expand(Huffman::Compress("abcaaabaaaaacaaaabcaaaaaabbaaaaadefaaaaaaaghaaggz"));
 	return 0;
 }

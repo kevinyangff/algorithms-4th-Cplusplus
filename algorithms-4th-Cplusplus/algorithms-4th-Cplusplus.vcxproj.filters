@@ -2,6 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="bitstream.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bag.h">
@@ -241,6 +244,15 @@
     <ClInclude Include="NFA.h">
       <Filter>Algorithms\String</Filter>
     </ClInclude>
+    <ClInclude Include="bitstream.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="HuffmanNode.h">
+      <Filter>Algorithms\Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Huffman.h">
+      <Filter>Algorithms\Compression</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DataStructs">
@@ -257,6 +269,12 @@
     </Filter>
     <Filter Include="Algorithms\String">
       <UniqueIdentifier>{fd71814c-250e-4bc4-bbd6-e9493942365a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{98be6937-b21a-487c-8477-afbf67edec4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithms\Compression">
+      <UniqueIdentifier>{65b59fd2-a64d-4000-a2eb-c9ccf7e5ec17}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

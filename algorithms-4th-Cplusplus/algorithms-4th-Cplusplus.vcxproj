@@ -114,6 +114,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bitstream.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +126,7 @@
     <ClInclude Include="BinaryHeapMinPQ.h" />
     <ClInclude Include="BinaryHeapSort.h" />
     <ClInclude Include="BinarySearchST.h" />
+    <ClInclude Include="bitstream.h" />
     <ClInclude Include="BoyerMoore.h" />
     <ClInclude Include="BreadthFirshCC.h" />
     <ClInclude Include="BreadthFirshPaths.h" />
@@ -158,6 +160,8 @@
     <ClInclude Include="EdgeWeightedGraph.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="HillSort.h" />
+    <ClInclude Include="Huffman.h" />
+    <ClInclude Include="HuffmanNode.h" />
     <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="KMP.h" />
     <ClInclude Include="KruskalMST.h" />
