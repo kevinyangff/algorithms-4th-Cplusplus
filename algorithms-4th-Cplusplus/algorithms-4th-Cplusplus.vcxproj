@@ -167,6 +167,7 @@
     <ClInclude Include="KruskalMST.h" />
     <ClInclude Include="LazyPrimMST.h" />
     <ClInclude Include="LSD.h" />
+    <ClInclude Include="LZW.h" />
     <ClInclude Include="MergeBUSort.h" />
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="MSD.h" />

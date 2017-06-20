@@ -65,7 +65,7 @@ TrieNode<T>* TrieST<T>::Put(TrieNode<T>* node, string key, T value, int d)
 		node->m_pValue = new T(value);
 		return node;
 	}
-	char c = key.at(d);
+	int c = (unsigned char)key.at(d);
 	node->m_ppNode[c] = Put(node->m_ppNode[c], key, value, d + 1);
 	return node;
 }
@@ -93,7 +93,7 @@ TrieNode<T>* TrieST<T>::Get(TrieNode<T>* node, string key, int d)
 	{
 		return node;
 	}
-	char c = key.at(d);
+	int c = (unsigned char)key.at(d);
 	return Get(node->m_ppNode[c], key, d+1);
 }
 
@@ -118,7 +118,7 @@ TrieNode<T>* TrieST<T>::Delete(TrieNode<T>* node, string key, int d)
 	}
 	else
 	{
-		char c = key.at(d);
+		int c = (unsigned char)key.at(d);
 		node->m_ppNode[c] = Delete(node->m_ppNode[c], key, d + 1);
 	}
 	if (node->m_pValue != 0)
@@ -186,7 +186,7 @@ void TrieST<T>::LongestPrefixOf(TrieNode<T>* node, string s, int d, int& n)
 	}
 	if (d != s.length())
 	{
-		char c = s.at(d);
+		int c = (unsigned char)s.at(d);
 		LongestPrefixOf(node->m_ppNode[c], s, d + 1, n);
 	}
 	return;
@@ -221,7 +221,7 @@ void TrieST<T>::KeysThatMatch(TrieNode<T>* node, string s, string sTarget, int d
 		}
 		return;
 	}
-	char c = s.at(d);
+	int c = (unsigned char)s.at(d);
 	if(c == '.')
 	{
 		for (int i = 0; i < m_R; i++)

@@ -253,6 +253,9 @@
     <ClInclude Include="Huffman.h">
       <Filter>Algorithms\Compression</Filter>
     </ClInclude>
+    <ClInclude Include="LZW.h">
+      <Filter>Algorithms\Compression</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DataStructs">

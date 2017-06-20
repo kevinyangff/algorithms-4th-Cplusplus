@@ -46,6 +46,7 @@
 #include "RabinKarp.h"
 #include "NFA.h"
 #include "Huffman.h"
+#include "LZW.h"
 using namespace std;
 
 void ShowTime()
@@ -467,6 +468,8 @@ int main()
 // 	cout << nfa.Recognizes("BAB");
 
 	//test Huffman
-	cout<<Huffman::Expand(Huffman::Compress("abcaaabaaaaacaaaabcaaaaaabbaaaaadefaaaaaaaghaaggz"));
+//	cout<<Huffman::Expand(Huffman::Compress("abcaaabaaaaacaaaabcaaaaaabbaaaaadefaaaaaaaghaaggz"));
+	//test LZW
+	cout << LZW::Expand(LZW::Compress("abcaaabaaaaacaaaabcaaaaaabbaaaaadefaaaaaaaghaaggz"));
 	return 0;
 }
